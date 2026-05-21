@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FFSLK STORE — Sri Lanka's Best Gaming Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #3b82f6;
+      --gold2: #60a5fa;
+      --orange: #ef4444;
+      --red: #dc2626;
+      --dark: #060610;
+      --dark2: #0a0a1a;
+      --dark3: #0d1128;
+      --dark4: #080812;
+      --card: #0f1020;
+      --border: rgba(59,130,246,0.2);
+      --text: #e8e8f0;
+      --muted: #888;
+      --glow: 0 0 24px rgba(59,130,246,0.45);
+      --glow-orange: 0 0 28px rgba(239,68,68,0.5);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 16px;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ---- SMOKE / FOG BACKGROUND ---- */
+    body::before { display: none; }
+
+    .smoke-blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+      animation: smokeFloat 10s ease-in-out infinite alternate;
+    }
+    .smoke-blob1 { width: 600px; height: 400px; background: rgba(59,130,246,0.18); top: -100px; left: -100px; animation-delay: 0s; animation-duration: 10s; }
+    .smoke-blob2 { width: 500px; height: 350px; background: rgba(239,68,68,0.15); bottom: 100px; right: -100px; animation-delay: 3s; animation-duration: 12s; }
+    .smoke-blob3 { width: 400px; height: 300px; background: rgba(139,92,246,0.12); top: 40%; left: 30%; animation-delay: 6s; animation-duration: 14s; }
+    .smoke-blob4 { width: 350px; height: 250px; background: rgba(59,130,246,0.1); bottom: 30%; right: 20%; animation-delay: 2s; animation-duration: 9s; }
+    .smoke-blob5 { width: 300px; height: 200px; background: rgba(239,68,68,0.1); top: 60%; left: 10%; animation-delay: 5s; animation-duration: 11s; }
+
+    @keyframes smokeFloat {
+      0%   { transform: scale(1) translate(0px, 0px); opacity: 0.6; }
+      33%  { transform: scale(1.15) translate(30px, -20px); opacity: 0.9; }
+      66%  { transform: scale(0.95) translate(-20px, 15px); opacity: 0.7; }
+      100% { transform: scale(1.1) translate(15px, -30px); opacity: 0.8; }
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 32px;
+      background: rgba(9,9,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-shadow: var(--glow);
+      -webkit-text-stroke: 1px currentColor;
+    }
+    .nav-logo span { color: var(--orange); }
+    nav ul {
+      display: flex; gap: 28px; list-style: none;
+    }
+    nav ul a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.08rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--dark);
+      padding: 9px 22px;
+      border-radius: 4px;
+      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-decoration: none;
+      -webkit-text-stroke: 0.5px currentColor;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold2); box-shadow: var(--glow); }
+
+    /* ---- HERO ---- */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px 60px;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(245,197,24,0.08);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      animation: fadeInDown 0.7s both;
+    }
+    .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #2ecc40; box-shadow: 0 0 8px #2ecc40; animation: pulse 1.4s infinite; }
+
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    .hero h1 {
+      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-size: clamp(3.2rem, 10vw, 7.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -1px;
+      -webkit-text-stroke: 2px currentColor;
+      paint-order: stroke fill;
+      animation: fadeInDown 0.7s 0.1s both;
+    }
+    .hero h1 .line1 { display: block; color: var(--text); }
+    .hero h1 .line2 { display: block; color: var(--gold); text-shadow: var(--glow); }
+
+    .hero-sub {
+      max-width: 560px;
+      margin: 22px auto 0;
+      font-size: 1.1rem;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.6;
+      animation: fadeInDown 0.7s 0.2s both;
+    }
+    .hero-sub strong { color: var(--text); }
+
+    .hero-btns {
+      display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+      margin-top: 36px;
+      animation: fadeInDown 0.7s 0.3s both;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px;
+      border-radius: 5px;
+      font-family: 'Orbitron', monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.22s;
+    }
+    .btn-primary { background: var(--gold); color: var(--dark); }
+    .btn-primary:hover { background: var(--gold2); box-shadow: var(--glow); transform: translateY(-2px); }
+    .btn-secondary { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+    .btn-secondary:hover { background: rgba(245,197,24,0.08); box-shadow: var(--glow); transform: translateY(-2px); }
+    .btn-orange { background: var(--orange); color: #fff; }
+    .btn-orange:hover { background: #ff7f37; box-shadow: var(--glow-orange); transform: translateY(-2px); }
+
+    .hero-collab {
+      margin-top: 52px;
+      display: flex; align-items: center; gap: 18px; justify-content: center;
+      animation: fadeInDown 0.7s 0.4s both;
+    }
+    .hero-collab-text { font-size: 0.78rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+    .collab-logos { display: flex; align-items: center; gap: 10px; }
+    .collab-logo {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--card);
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Orbitron', monospace;
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+    .collab-x { font-family: 'Orbitron', monospace; font-size: 1.3rem; color: var(--muted); }
+
+    /* STATS BAR */
+    .stats-bar {
+      position: relative; z-index: 1;
+      display: flex; justify-content: center; gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(245,197,24,0.03);
+    }
+    .stat-item {
+      flex: 1; max-width: 200px;
+      padding: 22px 24px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--gold);
+      text-shadow: var(--glow);
+      -webkit-text-stroke: 1px currentColor;
+    }
+    .stat-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; font-weight: 600; }
+
+    /* SECTION HEADER */
+    .section { position: relative; z-index: 1; padding: 80px 24px; }
+    .section-header { text-align: center; margin-bottom: 52px; }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.1;
+      -webkit-text-stroke: 1px currentColor;
+    }
+    .section-title span { color: var(--gold); }
+    .section-desc { max-width: 480px; margin: 14px auto 0; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+
+    /* PACKAGES GRID */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .package-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 24px;
+      position: relative;
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+      overflow: hidden;
+    }
+    .package-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(245,197,24,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .package-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(245,197,24,0.45);
+      box-shadow: 0 8px 40px rgba(245,197,24,0.12);
+    }
+    .package-card.popular { border-color: var(--gold); overflow: hidden; }
+    .package-card.popular::after {
+      content: 'POPULAR';
+      position: absolute; top: 20px; right: -30px;
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'Arial Black', Arial, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      width: 120px;
+      text-align: center;
+      padding: 6px 0;
+      transform: rotate(45deg);
+      white-space: nowrap;
+      z-index: 2;
+    }
+    .package-card.best { border-color: var(--orange); overflow: hidden; }
+    .package-card.best::after {
+      content: 'BEST VALUE';
+      position: absolute; top: 20px; right: -30px;
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Arial Black', Arial, sans-serif;
+      font-size: 0.6rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      width: 120px;
+      text-align: center;
+      padding: 6px 0;
+      transform: rotate(45deg);
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    .pkg-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .pkg-features { list-style: none; margin-bottom: 20px; }
+    .pkg-features li {
+      font-size: 0.92rem;
+      color: var(--muted);
+      padding: 5px 0;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .pkg-features li:last-child { border-bottom: none; }
+    .pkg-features li .icon { font-size: 1rem; }
+
+    .pkg-price-row { display: flex; align-items: flex-end; gap: 10px; margin-bottom: 16px; }
+    .pkg-price {
+      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--gold);
+      -webkit-text-stroke: 1px currentColor;
+    }
+    .pkg-price-old {
+      font-size: 1rem;
+      color: var(--muted);
+      text-decoration: line-through;
+      font-family: 'Space Mono', monospace;
+    }
+    .pkg-currency { font-size: 0.8rem; color: var(--muted); margin-bottom: 4px; }
+
+    .pkg-sold {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .pkg-sold::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: #2ecc40; }
+
+    .btn-pkg {
+      width: 100%;
+      justify-content: center;
+      padding: 12px;
+      font-size: 0.78rem;
+    }
+
+    /* LIKES SECTION */
+    .likes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .like-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: all 0.22s;
+      position: relative;
+      overflow: hidden;
+    }
+    .like-card:hover { transform: translateY(-5px); border-color: rgba(255,107,26,0.4); box-shadow: 0 8px 40px rgba(255,107,26,0.10); }
+    .like-card.hot-offer { border-color: var(--orange); }
+    .hot-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Orbitron', monospace;
+      font-size: 0.6rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+    .like-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .like-stats { display: flex; justify-content: center; gap: 24px; margin-bottom: 18px; }
+    .like-stat { text-align: center; }
+    .like-stat-num {
+      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--orange);
+      -webkit-text-stroke: 1px currentColor;
+    }
+    .like-stat-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+    .like-price {
+      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 16px;
+      -webkit-text-stroke: 1px currentColor;
+    }
+
+    /* RARE UID */
+    .uid-section {
+      background: linear-gradient(135deg, var(--dark3) 0%, var(--dark4) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .uid-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: center;
+    }
+    .uid-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--gold), var(--orange));
+      color: var(--dark);
+      font-family: 'Orbitron', monospace;
+      font-size: 0.65rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .uid-title {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .uid-desc { color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+    .uid-examples {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .uid-example-item {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 20px;
+      font-family: 'Space Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--gold);
+      text-shadow: var(--glow);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .uid-example-item .uid-label { font-size: 0.65rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; font-family: 'Rajdhani', sans-serif; }
+
+    /* COMMUNITY */
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .community-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 26px 20px;
+      text-align: center;
+      transition: all 0.22s;
+    }
+    .community-card:hover { border-color: rgba(245,197,24,0.4); transform: translateY(-3px); }
+    .community-icon { font-size: 2rem; margin-bottom: 10px; }
+    .community-name {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .community-desc { font-size: 0.82rem; color: var(--muted); margin-bottom: 14px; }
+
+    /* CONTACT BAR */
+    .contact-bar {
+      position: relative; z-index: 1;
+      background: linear-gradient(90deg, #1d4ed8 0%, #ef4444 100%);
+      padding: 18px 32px;
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      text-align: center;
+    }
+    .contact-bar-text {
+      font-family: 'Orbitron', monospace;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--dark);
+      letter-spacing: 1px;
+    }
+    .contact-bar a {
+      color: var(--dark);
+      font-weight: 900;
+      font-family: 'Orbitron', monospace;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    /* FOOTER */
+    footer {
+      position: relative; z-index: 1;
+      background: var(--dark4);
+      border-top: 1px solid var(--border);
+      padding: 36px 32px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+      -webkit-text-stroke: 1.5px currentColor;
+      text-shadow: var(--glow);
+    }
+    .footer-copy { color: var(--muted); font-size: 0.9rem; letter-spacing: 1px; font-weight: 700; font-family: 'Arial Black', Arial, sans-serif; }
+    .footer-copy a { color: var(--gold); text-decoration: none; }
+
+    /* ANIMATIONS */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 80px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--orange));
+      border-radius: 100px;
+      margin: 12px auto 0;
+    }
+
+    /* WHATSAPP FLOAT */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 200;
+      width: 56px; height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: waPop 1.2s 1s both;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+    @keyframes waPop { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+
+    /* ---- MOBILE BOTTOM NAV ---- */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 999;
+      background: rgba(6,6,16,0.97);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(59,130,246,0.25);
+      padding: 0;
+      box-shadow: 0 -8px 40px rgba(0,0,0,0.6), 0 -1px 0 rgba(59,130,246,0.15);
+    }
+
+    /* Safe area for notch phones */
+    .mobile-nav-inner {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-around;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    .mob-nav-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 4px 12px;
+      text-decoration: none;
+      color: #555570;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      position: relative;
+      cursor: pointer;
+      border: none;
+      background: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mob-nav-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 32px; height: 2px;
+      border-radius: 0 0 4px 4px;
+      background: var(--gold);
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .mob-nav-item.active::before { transform: translateX(-50%) scaleX(1); }
+
+    .mob-nav-item .mob-icon {
+      font-size: 1.3rem;
+      line-height: 1;
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .mob-nav-item.active .mob-icon { transform: translateY(-2px) scale(1.15); }
+
+    .mob-nav-item.active { color: var(--gold); }
+    .mob-nav-item.active.purple-tab { color: #a855f7; }
+    .mob-nav-item.active.purple-tab::before { background: #a855f7; }
+    .mob-nav-item.active.green-tab { color: #22c55e; }
+    .mob-nav-item.active.green-tab::before { background: #22c55e; }
+    .mob-nav-item.active.red-tab { color: var(--orange); }
+    .mob-nav-item.active.red-tab::before { background: var(--orange); }
+
+    /* Mobile section panels */
+    .mobile-section-panel {
+      display: none;
+    }
+
+    /* Mobile content area padding when bottom nav is shown */
+    @media (max-width: 700px) {
+      .mobile-nav { display: none !important; }
+      body { padding-bottom: 0; }
+      nav ul { display: none !important; }
+      .nav-logo { display: block !important; }
+      .nav-cta { display: none !important; }
+      .hamburger { display: flex !important; }
+      nav { padding: 12px 16px; justify-content: space-between; }
+      .uid-inner { grid-template-columns: 1fr; gap: 32px; }
+      .stats-bar { flex-wrap: wrap; }
+      .stat-item { max-width: none; flex: 1 1 50%; }
+      .packages-grid { grid-template-columns: 1fr !important; }
+      .likes-grid { grid-template-columns: 1fr !important; max-width: 100% !important; }
+      .community-grid { grid-template-columns: 1fr !important; }
+      .uid-grid { grid-template-columns: 1fr !important; }
+      .tier-tabs { flex-direction: row; flex-wrap: nowrap; gap: 8px; }
+      .tier-btn { font-size: 0.72rem; padding: 10px 4px; letter-spacing: 0; }
+      .package-card { min-width: unset !important; }
+      .package-card[style*="grid-column:span 2"] { grid-column: span 1 !important; }
+      .section { padding: 50px 16px; }
+      .hero { padding: 60px 16px 40px; }
+      .hero h1 { font-size: clamp(2.5rem, 14vw, 4rem); }
+      .cart-float { bottom: 28px !important; right: 16px !important; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="smoke-blob smoke-blob1"></div>
+<div class="smoke-blob smoke-blob2"></div>
+<div class="smoke-blob smoke-blob3"></div>
+<div class="smoke-blob smoke-blob4"></div>
+<div class="smoke-blob smoke-blob5"></div>
+
+<!-- NAV -->
+<style>
+  /* HAMBURGER NAV */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  .hamburger:hover { border-color: var(--gold); }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* MOBILE DROPDOWN MENU */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 57px;
+    left: 0;
+    width: 220px;
+    background: rgba(9,9,15,0.98);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 10px 0;
+    z-index: 200;
+    flex-direction: column;
+    backdrop-filter: blur(16px);
+    box-shadow: 4px 4px 24px rgba(0,0,0,0.5);
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .mobile-menu.open {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .mobile-menu a {
+    display: block;
+    padding: 14px 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s, color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { background: rgba(59,130,246,0.08); color: var(--gold); }
+  .mobile-menu a.vip-server { color: #a855f7; }
+  .mobile-menu a.ffslk-team { color: #f5c518; }
+  .menu-overlay { position: fixed; inset: 0; z-index: 150; display: none; }
+  .menu-overlay.open { display: block; }
+
+  @media (max-width: 900px) {
+    .hamburger { display: flex !important; }
+    nav ul { display: none !important; }
+    .nav-logo { display: block !important; }
+    .nav-cta { display: none !important; }
+  }
+</style>
+
+<nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-logo" style="font-family:'Arial Black',Arial,sans-serif;font-size:1.4rem;font-weight:900;letter-spacing:3px;color:#3b82f6;text-shadow:0 0 18px rgba(59,130,246,0.7);">FFSLK <span style="color:#ffffff;text-shadow:0 0 10px rgba(255,255,255,0.3);">STORE</span></div>
+
+  <ul>
+    <li><a href="#guild">Guild Glory</a></li>
+    <li><a href="#likes">Profile Likes</a></li>
+    <li><a href="#uid">Rare UID</a></li>
+    <li><a href="#vipserver" style="color:#a855f7;">🔥 VIP Server</a></li>
+    <li><a href="#levelup" style="color:#3b82f6;">⚡ API STORE</a></li>
+    <li><a href="#vip" style="color:#f5c518;">👑 FFSLK Team</a></li>
+  </ul>
+
+  <a href="https://wa.me/94741100921" target="_blank" class="nav-cta">ORDER NOW</a>
+</nav>
+
+<!-- MOBILE DROPDOWN -->
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#guild" onclick="toggleMenu()">Guild Glory</a>
+  <a href="#likes" onclick="toggleMenu()">Profile Likes</a>
+  <a href="#uid" onclick="toggleMenu()">Rare UID</a>
+  <a href="#vipserver" class="vip-server" onclick="toggleMenu()">VIP Server</a>
+  <a href="#levelup" onclick="toggleMenu()" style="color:#3b82f6;">API STORE</a>
+  <a href="#vip" class="ffslk-team" onclick="toggleMenu()">FFSLK Team</a>
+</div>
+
+<script>
+  function toggleMenu() {
+    const btn = document.getElementById('hamburger');
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('menuOverlay');
+    btn.classList.toggle('active');
+    menu.classList.toggle('open');
+    overlay.classList.toggle('open');
+  }
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    🇱🇰 SRI LANKA'S BEST GAMING STORE
+  </div>
+  <h1>
+    <span class="line1">FF SERVICES</span>
+    <span class="line2">LK</span>
+  </h1>
+  <p class="hero-sub">
+    Sri Lanka's most trusted source for <strong>Guild Glory bots</strong> and <strong>real profile likes</strong>.
+    Fast, safe, and premium service — FFLK SPAI
+  </p>
+  <div class="hero-btns">
+    <a href="#guild" class="btn btn-primary" style="font-family:'Arial Black',Arial,sans-serif;font-size:0.9rem;-webkit-text-stroke:0.5px currentColor;">BUY GLORY BOT</a>
+    <a href="#likes" class="btn btn-secondary" style="font-family:'Arial Black',Arial,sans-serif;font-size:0.9rem;-webkit-text-stroke:0.5px currentColor;">BUY PROFILE LIKES</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-num">9999+</div>
+    <div class="stat-label">Orders Delivered</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Safe & Trusted</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">1.5M</div>
+    <div class="stat-label">Max Glory Boost</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">24/7</div>
+    <div class="stat-label">Support Available</div>
+  </div>
+</div>
+
+<!-- GUILD GLORY -->
+<section class="section" id="guild">
+  <div class="section-header">
+    <span class="section-eyebrow">⚡ Free Fire Boost</span>
+    <h2 class="section-title">GUILD GLORY <span>PACKAGES</span></h2>
+    <div class="divider"></div>
+    <p class="section-desc">Pick your squad size and rise through the guild ranks with our secure, steady bot delivery — built for real results.</p>
+  </div>
+
+  <div class="packages-grid">
+
+    <div class="package-card">
+      <div class="pkg-title">1 SQUAD</div>
+      <ul class="pkg-features">
+        <li><span class="icon">⚡</span> 3 Bots Activated</li>
+        <li><span class="icon">🏆</span> 100K – 200K Glory</li>
+        <li><span class="icon">🛡</span> Safe Gradual Delivery</li>
+      </ul>
+      <div class="pkg-sold">142 Sold</div>
+      <div class="pkg-price-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
+        <div><span class="pkg-price">$1.99</span> <span style="color:#888;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 500</span></div>
+      </div>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%201%20SQUAD%20Guild%20Glory%20package%20%28LKR%20500%29.%20Please%20assist%20me%21%20%F0%9F%8E%AE" class="btn btn-primary btn-pkg" target="_blank">ORDER NOW</a>
+    </div>
+
+    <div class="package-card">
+      <div class="pkg-title">2 SQUADS</div>
+      <ul class="pkg-features">
+        <li><span class="icon">⚡</span> 6 Bots Activated</li>
+        <li><span class="icon">🏆</span> 200K – 400K Glory</li>
+        <li><span class="icon">🚀</span> Faster Boost Delivery</li>
+      </ul>
+      <div class="pkg-sold">288 Sold</div>
+      <div class="pkg-price-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
+        <div><span class="pkg-price">$3.99</span> <span style="color:#888;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 1,000</span></div>
+      </div>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%202%20SQUADS%20Guild%20Glory%20package%20%28LKR%201%2C000%29.%20Please%20assist%20me%21%20%F0%9F%8E%AE" class="btn btn-primary btn-pkg" target="_blank">ORDER NOW</a>
+    </div>
+
+    <div class="package-card popular">
+      <div class="pkg-title">3 SQUADS</div>
+      <ul class="pkg-features">
+        <li><span class="icon">⚡</span> 9 Bots Activated</li>
+        <li><span class="icon">🏆</span> 400K – 600K Glory</li>
+        <li><span class="icon">🔥</span> High Rank Push</li>
+      </ul>
+      <div class="pkg-sold">466 Sold</div>
+      <div class="pkg-price-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
+        <div><span class="pkg-price">$5.99</span> <span style="color:#888;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 1,500</span></div>
+      </div>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%203%20SQUADS%20Guild%20Glory%20package%20%28LKR%201%2C500%29.%20Please%20assist%20me%21%20%F0%9F%8E%AE" class="btn btn-primary btn-pkg" target="_blank">ORDER NOW</a>
+    </div>
+
+    <div class="package-card">
+      <div class="pkg-title">4 SQUADS</div>
+      <ul class="pkg-features">
+        <li><span class="icon">⚡</span> 12 Bots Activated</li>
+        <li><span class="icon">🏆</span> 600K – 900K Glory</li>
+        <li><span class="icon">🔥</span> High Rank Push</li>
+      </ul>
+      <div class="pkg-sold">219 Sold</div>
+      <div class="pkg-price-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
+        <div><span class="pkg-price">$7.99</span> <span style="color:#888;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 2,000</span></div>
+      </div>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%204%20SQUADS%20Guild%20Glory%20package%20%28LKR%202%2C000%29.%20Please%20assist%20me%21%20%F0%9F%8E%AE" class="btn btn-primary btn-pkg" target="_blank">ORDER NOW</a>
+    </div>
+
+    <div class="package-card">
+      <div class="pkg-title">5 SQUADS</div>
+      <ul class="pkg-features">
+        <li><span class="icon">⚡</span> 15 Bots Activated</li>
+        <li><span class="icon">🏆</span> 900K – 1.2M Glory</li>
+        <li><span class="icon">👑</span> Elite Massive Growth</li>
+      </ul>
+      <div class="pkg-sold">173 Sold</div>
+      <div class="pkg-price-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
+        <div><span class="pkg-price">$9.99</span> <span style="color:#888;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 2,500</span></div>
+      </div>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%205%20SQUADS%20Guild%20Glory%20package%20%28LKR%202%2C500%29.%20Please%20assist%20me%21%20%F0%9F%8E%AE" class="btn btn-primary btn-pkg" target="_blank">ORDER NOW</a>
+    </div>
+
+    <div class="package-card best">
+      <div class="pkg-title">6 SQUADS</div>
+      <ul class="pkg-features">
+        <li><span class="icon">⚡</span> 18 Bots Activated</li>
+        <li><span class="icon">🏆</span> 1.2M – 1.5M Glory</li>
+        <li><span class="icon">🚀</span> Maximum Power Package</li>
+      </ul>
+      <div class="pkg-sold">351 Sold</div>
+      <div class="pkg-price-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
+        <div><span class="pkg-price-old">LKR 3,000</span></div>
+        <div><span class="pkg-currency">LKR</span> <span class="pkg-price" style="color:var(--orange);">$11.00</span> <span style="color:#888;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 2,750</span></div>
+      </div>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%206%20SQUADS%20Guild%20Glory%20package%20%28LKR%202%2C750%29.%20Please%20assist%20me%21%20%F0%9F%8E%AE" class="btn btn-orange btn-pkg" target="_blank">ORDER NOW</a>
+    </div>
+
+    <!-- VIP RESELLER PACKAGE CARD -->
+    <div class="package-card" style="border:2px solid #f5c518;background:linear-gradient(135deg,#0f0f1c,#12121e);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="position:absolute;inset:0;box-shadow:inset 0 0 30px rgba(245,197,24,0.10);pointer-events:none;border-radius:10px;"></div>
+      <div style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(245,197,24,0.02) 0px,transparent 2px,transparent 40px);pointer-events:none;"></div>
+      <div style="position:relative;z-index:1;display:flex;flex-direction:column;height:100%;">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+          <div style="display:inline-block;background:#f5c518;color:#000;font-family:'Arial Black',Arial,sans-serif;font-size:0.58rem;font-weight:900;letter-spacing:2px;padding:3px 10px;border-radius:100px;">⭐ MOST POPULAR</div>
+          <div style="font-family:'Arial Black',Arial,sans-serif;font-size:0.7rem;font-weight:900;color:#f5c518;letter-spacing:2px;">CONTACT US</div>
+        </div>
+        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:2rem;font-weight:900;color:#f5c518;text-shadow:0 0 20px rgba(245,197,24,0.6);letter-spacing:2px;line-height:1;">GLORY BOT</div>
+        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1rem;font-weight:900;color:#fff;letter-spacing:3px;margin-bottom:6px;">ACCESS</div>
+        <ul class="pkg-features" style="margin-bottom:16px;flex:1;">
+          <li><span class="icon">👑</span> Unlimited Orders Access</li>
+          <li><span class="icon">💎</span> Special Reseller Prices</li>
+          <li><span class="icon">🎧</span> Priority Support</li>
+          <li style="color:#f5c518;font-weight:700;"><span class="icon">🔒</span> Limited Slots Only</li>
+        </ul>
+        <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20get%20Glory%20Bot%20Access%20at%20FFSLK%20STORE.%20How%20can%20I%20join%3F%20%F0%9F%91%91" target="_blank" style="display:block;text-align:center;background:#f5c518;color:#1a1000;font-family:'Arial Black',Arial,sans-serif;font-size:0.78rem;font-weight:900;letter-spacing:2px;padding:13px;border-radius:6px;text-decoration:none;box-shadow:0 0 20px rgba(245,197,24,0.5);">CONTACT NOW ➤</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROFILE LIKES -->
+<section class="section" id="likes" style="background: rgba(255,107,26,0.03);">
+  <div class="section-header">
+    <span class="section-eyebrow" style="color:var(--gold);">❤️ Real Engagement</span>
+    <h2 class="section-title">PROFILE <span style="color:var(--orange);">LIKE STORE</span></h2>
+    <div class="divider" style="background: linear-gradient(90deg,var(--orange),var(--gold));"></div>
+    <p class="section-desc">Get real likes delivered steadily every day — smooth growth with zero risk to your account.</p>
+  </div>
+
+  <div class="likes-grid" style="max-width:820px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+
+    <div class="like-card hot-offer">
+      <div class="hot-badge">🔥 BEST DEAL</div>
+      <div class="like-title">30 DAYS LIKES</div>
+      <div class="like-stats">
+        <div class="like-stat">
+          <div class="like-stat-num">6,000+</div>
+          <div class="like-stat-label">Total Likes</div>
+        </div>
+        <div class="like-stat">
+          <div class="like-stat-num">200+</div>
+          <div class="like-stat-label">Daily Likes</div>
+        </div>
+      </div>
+      <div class="like-price"><span style="font-size:1.8rem;font-family:'Arial Black',sans-serif;font-weight:900;">$19.99</span> <span style="font-size:0.85rem;color:#888;font-family:'Rajdhani',sans-serif;">/ LKR 2,000</span></div>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%2030%20Days%20Profile%20Likes%20package%20%28LKR%202%2C000%29.%20Please%20assist%20me%21%20%E2%9D%A4%EF%B8%8F" class="btn btn-orange btn-pkg" target="_blank">BUY NOW</a>
+    </div>
+
+    <!-- VIP RESELLER LIKES CARD -->
+    <div class="like-card" style="border:2px solid #f5c518;background:linear-gradient(135deg,#0f0f1c,#12121e);text-align:left;">
+      <div style="text-align:center;margin-bottom:16px;">
+        <div style="display:inline-block;background:#f5c518;color:#000;font-family:'Arial Black',Arial,sans-serif;font-size:0.58rem;font-weight:900;letter-spacing:2px;padding:3px 12px;border-radius:100px;">⭐ VIP</div>
+      </div>
+      <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1.1rem;font-weight:900;color:#f5c518;letter-spacing:2px;text-align:center;margin-bottom:16px;text-shadow:0 0 12px rgba(245,197,24,0.5);">VIP RESELLER LIKES</div>
+      <ul class="pkg-features" style="margin-bottom:20px;">
+        <li><span class="icon">💎</span> Bulk Likes Access</li>
+        <li><span class="icon">👑</span> Special Reseller Pricing</li>
+        <li><span class="icon">🎧</span> Priority Support</li>
+        <li style="color:#f5c518;font-weight:700;"><span class="icon">🔒</span> Limited Slots Only</li>
+      </ul>
+      <div style="text-align:center;margin-bottom:12px;font-family:'Arial Black',Arial,sans-serif;font-size:0.85rem;font-weight:900;color:#f5c518;letter-spacing:2px;">CONTACT US</div>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20join%20the%20VIP%20Reseller%20Likes%20program%20at%20FFSLK%20STORE.%20Please%20assist%20me%21%20%E2%9D%A4%EF%B8%8F" target="_blank" style="display:block;text-align:center;background:#f5c518;color:#1a1000;font-family:'Arial Black',Arial,sans-serif;font-size:0.78rem;font-weight:900;letter-spacing:2px;padding:12px;border-radius:6px;text-decoration:none;box-shadow:0 0 16px rgba(245,197,24,0.45);">CONTACT NOW ➤</a>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- CUSTOMIZED UIDS -->
+<!-- ASTUTE VIP PROXY SERVER -->
+<section class="section" id="vipserver" style="background:linear-gradient(135deg,#0a0514,#12052a);">
+  <div class="section-header">
+    <span class="section-eyebrow" style="color:#a855f7;">🔥 Exclusive Access</span>
+    <h2 class="section-title" style="font-family:'Arial Black',Arial,sans-serif;-webkit-text-stroke:1px #a855f7;">ASTUTE <span style="color:#a855f7;">VIP PROXY SERVER</span></h2>
+    <div class="divider" style="background:linear-gradient(90deg,#a855f7,#7c3aed);"></div>
+    <p class="section-desc">A private Free Fire proxy server loaded with everything — unlimited diamonds, gold, all gun skins, costumes and emotes that appear in the real FF server!</p>
+  </div>
+
+  <style>
+    .proxy-features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(160px,100%), 1fr));
+      gap: 14px;
+      max-width: 900px;
+      margin: 0 auto 48px;
+    }
+    .proxy-feature {
+      background: rgba(168,85,247,0.08);
+      border: 1px solid rgba(168,85,247,0.25);
+      border-radius: 10px;
+      padding: 18px 14px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .proxy-feature:hover { border-color: #a855f7; background: rgba(168,85,247,0.15); transform: translateY(-3px); }
+    .proxy-feature-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .proxy-feature-text { font-family: 'Arial Black', Arial, sans-serif; font-size: 0.72rem; font-weight: 900; color: #e8e8f0; letter-spacing: 1px; }
+    .proxy-plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px,100%), 1fr)); gap: 20px; max-width: 800px; margin: 0 auto; }
+    .proxy-card {
+      background: linear-gradient(135deg, #0f0520, #1a0835);
+      border: 1px solid rgba(168,85,247,0.3);
+      border-radius: 12px;
+      padding: 28px 22px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.22s;
+    }
+    .proxy-card:hover { border-color: #a855f7; box-shadow: 0 8px 30px rgba(168,85,247,0.2); transform: translateY(-4px); }
+    .proxy-card.proxy-best { border-color: rgba(168,85,247,0.5); box-shadow: none; }
+    .proxy-card.proxy-best::before { content: 'BEST DEAL'; position: absolute; top: 16px; right: -28px; background: #a855f7; color: #fff; font-family: 'Arial Black', Arial, sans-serif; font-size: 0.5rem; font-weight: 900; letter-spacing: 1px; width: 110px; text-align: center; padding: 5px 0; transform: rotate(45deg); z-index: 2; }
+    .proxy-days { font-family: 'Arial Black', Arial, sans-serif; font-size: 1.6rem; font-weight: 900; color: #a855f7; text-shadow: 0 0 20px rgba(168,85,247,0.6); margin-bottom: 4px; }
+    .proxy-days-label { font-size: 0.72rem; color: #888; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
+    .proxy-price { font-family: 'Arial Black', Arial, sans-serif; font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 4px; -webkit-text-stroke: 1px currentColor; }
+    .proxy-currency { font-size: 0.75rem; color: #888; letter-spacing: 1px; margin-bottom: 20px; }
+    .proxy-btn { display: block; background: linear-gradient(135deg, #7c3aed, #a855f7); color: #fff; font-family: 'Arial Black', Arial, sans-serif; font-size: 0.75rem; font-weight: 900; letter-spacing: 2px; padding: 12px; border-radius: 6px; text-decoration: none; box-shadow: 0 0 16px rgba(168,85,247,0.4); transition: all 0.2s; }
+    .proxy-btn:hover { box-shadow: 0 0 28px rgba(168,85,247,0.7); }
+  </style>
+
+  <!-- FEATURES -->
+  <div class="proxy-features-grid">
+    <div class="proxy-feature"><div class="proxy-feature-icon">💎</div><div class="proxy-feature-text">INFINITE DIAMONDS</div><div style="font-size:0.68rem;color:#888;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Unlimited diamonds to unlock anything in the game — no top-up needed ever.</div></div>
+    <div class="proxy-feature"><div class="proxy-feature-icon">🥇</div><div class="proxy-feature-text">UNLIMITED GOLD</div><div style="font-size:0.68rem;color:#888;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Max gold balance at all times — buy any item from the gold shop instantly.</div></div>
+    <div class="proxy-feature"><div class="proxy-feature-icon">🔫</div><div class="proxy-feature-text">ALL GUN SKINS</div><div style="font-size:0.68rem;color:#888;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Every single gun skin unlocked — rare, legendary and exclusive skins included.</div></div>
+    <div class="proxy-feature"><div class="proxy-feature-icon">👗</div><div class="proxy-feature-text">ALL COSTUMES</div><div style="font-size:0.68rem;color:#888;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Full wardrobe access — all outfits, bundles and character skins available to wear.</div></div>
+    <div class="proxy-feature"><div class="proxy-feature-icon">🕺</div><div class="proxy-feature-text">ALL EMOTES</div><div style="font-size:0.68rem;color:#888;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Every emote unlocked — and real Free Fire server players can also see your emotes when you perform them!</div></div>
+  </div>
+
+  <!-- PLANS -->
+  <div class="proxy-plans">
+
+    <div class="proxy-card">
+      <div class="proxy-days">1</div>
+      <div class="proxy-days-label">DAY ACCESS</div>
+      <div class="proxy-price">$1.00</div>
+      <div class="proxy-currency">USD <span style="color:#888;font-size:0.75rem;font-weight:400;">/ LKR 300</span></div>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%20ASTUTE%20VIP%20Proxy%20Server%20-%201%20Day%20access%20%28LKR%20300%29.%20Please%20assist%20me%21%20%F0%9F%94%A5" target="_blank" class="proxy-btn">ORDER NOW</a>
+    </div>
+
+    <div class="proxy-card proxy-best">
+      <div class="proxy-days">7</div>
+      <div class="proxy-days-label">DAYS ACCESS</div>
+      <div class="proxy-price">$5.00</div>
+      <div class="proxy-currency">USD <span style="color:#888;font-size:0.75rem;font-weight:400;">/ LKR 1,500</span></div>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%20ASTUTE%20VIP%20Proxy%20Server%20-%207%20Days%20access%20%28LKR%201%2C500%29.%20Please%20assist%20me%21%20%F0%9F%94%A5" target="_blank" class="proxy-btn">ORDER NOW</a>
+    </div>
+
+    <div class="proxy-card">
+      <div class="proxy-days">30</div>
+      <div class="proxy-days-label">DAYS ACCESS</div>
+      <div class="proxy-price">$20.00</div>
+      <div class="proxy-currency">USD <span style="color:#888;font-size:0.75rem;font-weight:400;">/ LKR 6,000</span></div>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%20ASTUTE%20VIP%20Proxy%20Server%20-%2030%20Days%20access%20%28LKR%206%2C000%29.%20Please%20assist%20me%21%20%F0%9F%94%A5" target="_blank" class="proxy-btn">ORDER NOW</a>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- LEVEL UP API PACKAGES -->
+<section class="section" id="levelup" style="background:linear-gradient(135deg,#06060f,#0a0a1a);">
+  <div class="section-header">
+    <span class="section-eyebrow" style="color:#3b82f6;">🚀 Free Fire API</span>
+    <h2 class="section-title">LEVEL UP <span style="color:#3b82f6;">API KEYS</span></h2>
+    <div class="divider" style="background:linear-gradient(90deg,#3b82f6,#60a5fa);"></div>
+    <p class="section-desc">Power your tools with real Free Fire data. Purchase API keys and integrate instantly.</p>
+    <button onclick="toggleAPIPackages()" id="apiToggleBtn" style="margin-top:24px;background:linear-gradient(135deg,#3b82f6,#60a5fa);color:#fff;font-family:'Arial Black',Arial,sans-serif;font-size:0.85rem;font-weight:900;letter-spacing:2px;padding:14px 36px;border:none;border-radius:6px;cursor:pointer;box-shadow:0 0 24px rgba(59,130,246,0.4);transition:all 0.2s;">🚀 VIEW API PACKAGES ▼</button>
+  </div>
+
+  <div id="apiPackagesGrid" style="display:none;">
+  <div class="packages-grid" style="max-width:1100px;margin:0 auto;">
+
+    <!-- LEVEL UP BOT -->
+    <div class="package-card" style="border:2px solid #3b82f6;background:linear-gradient(135deg,#0a0f1e,#0d1428);box-shadow:0 0 32px rgba(59,130,246,0.25);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#3b82f6,#60a5fa,#3b82f6,transparent);pointer-events:none;"></div>
+      <div style="display:inline-block;background:linear-gradient(90deg,#3b82f6,#60a5fa);color:#fff;font-family:'Arial Black',Arial,sans-serif;font-size:0.58rem;font-weight:900;letter-spacing:2px;padding:3px 12px;border-radius:100px;margin-bottom:12px;">⭐ FEATURED</div>
+      <div class="pkg-title" style="color:#60a5fa;font-size:1.3rem;">LEVEL UP BOT</div>
+      <ul class="pkg-features">
+        <li><span class="icon">🚀</span> Auto Level Booster</li>
+        <li><span class="icon">✅</span> Instant Working</li>
+        <li><span class="icon">🛡</span> Safe & Secure</li>
+        <li><span class="icon">⚡</span> Fast Delivery</li>
+      </ul>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20buy%20the%20Level%20Up%20Bot%20package%20from%20FFSLK%20STORE.%20Please%20assist%20me%21" class="btn btn-primary btn-pkg" target="_blank" style="background:linear-gradient(135deg,#3b82f6,#60a5fa);">ORDER NOW ➤</a>
+    </div>
+
+    <!-- INFO API -->
+    <div class="package-card" style="border-color:rgba(59,130,246,0.5);">
+      <div class="pkg-title" style="color:#3b82f6;">INFO API</div>
+      <ul class="pkg-features">
+        <li><span class="icon">🔍</span> Player Info Lookup</li>
+        <li><span class="icon">✅</span> Instant Working</li>
+        <li><span class="icon">🛡</span> Instant Key Delivery</li>
+      </ul>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20buy%20an%20Info%20API%20Key%20from%20FFSLK%20STORE.%20Please%20assist%20me%21" class="btn btn-primary btn-pkg" target="_blank" style="background:#3b82f6;">BUY INFO API KEY</a>
+    </div>
+
+    <!-- LIKES API -->
+    <div class="package-card" style="border-color:#3b82f6;box-shadow:0 0 24px rgba(59,130,246,0.18);">
+      <div style="position:absolute;top:20px;right:-30px;background:#3b82f6;color:#fff;font-family:'Arial Black',Arial,sans-serif;font-size:0.65rem;font-weight:900;letter-spacing:2px;width:120px;text-align:center;padding:6px 0;transform:rotate(45deg);white-space:nowrap;z-index:2;">POPULAR</div>
+      <div class="pkg-title" style="color:#3b82f6;">LIKES API</div>
+      <ul class="pkg-features">
+        <li><span class="icon">❤️</span> Profile Likes Automation</li>
+        <li><span class="icon">✅</span> Instant Working</li>
+        <li><span class="icon">🔥</span> Working After OB51</li>
+      </ul>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20buy%20a%20Likes%20API%20Key%20from%20FFSLK%20STORE.%20Please%20assist%20me%21" class="btn btn-primary btn-pkg" target="_blank" style="background:#3b82f6;">BUY LIKES API KEY</a>
+    </div>
+
+    <!-- VISITS API -->
+    <div class="package-card" style="border-color:rgba(59,130,246,0.5);">
+      <div class="pkg-title" style="color:#3b82f6;">VISITS API</div>
+      <ul class="pkg-features">
+        <li><span class="icon">👁</span> Profile Visit Tracking</li>
+        <li><span class="icon">✅</span> Instant Working</li>
+        <li><span class="icon">🛡</span> Instant Key Delivery</li>
+      </ul>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20buy%20a%20Visits%20API%20Key%20from%20FFSLK%20STORE.%20Please%20assist%20me%21" class="btn btn-primary btn-pkg" target="_blank" style="background:#3b82f6;">BUY VISITS API KEY</a>
+    </div>
+
+    <!-- STATS API -->
+    <div class="package-card" style="border-color:rgba(59,130,246,0.5);">
+      <div class="pkg-title" style="color:#3b82f6;">STATS API</div>
+      <ul class="pkg-features">
+        <li><span class="icon">📊</span> Full Player Stats Data</li>
+        <li><span class="icon">✅</span> Instant Working</li>
+        <li><span class="icon">🛡</span> Instant Key Delivery</li>
+      </ul>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20buy%20a%20Stats%20API%20Key%20from%20FFSLK%20STORE.%20Please%20assist%20me%21" class="btn btn-primary btn-pkg" target="_blank" style="background:#3b82f6;">BUY STATS API KEY</a>
+    </div>
+
+    <!-- WISHLIST API -->
+    <div class="package-card" style="border-color:rgba(59,130,246,0.5);">
+      <div class="pkg-title" style="color:#3b82f6;">WISHLIST API</div>
+      <ul class="pkg-features">
+        <li><span class="icon">🎁</span> Player Wishlist Access</li>
+        <li><span class="icon">✅</span> Instant Working</li>
+        <li><span class="icon">🛡</span> Instant Key Delivery</li>
+      </ul>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20buy%20a%20Wishlist%20API%20Key%20from%20FFSLK%20STORE.%20Please%20assist%20me%21" class="btn btn-primary btn-pkg" target="_blank" style="background:#3b82f6;">BUY WISHLIST API KEY</a>
+    </div>
+
+    <!-- CRAFTLAND API -->
+    <div class="package-card" style="border-color:rgba(59,130,246,0.5);">
+      <div class="pkg-title" style="color:#3b82f6;">CRAFTLAND API</div>
+      <ul class="pkg-features">
+        <li><span class="icon">🗺</span> Craftland Map Data</li>
+        <li><span class="icon">✅</span> Instant Working</li>
+        <li><span class="icon">🛡</span> Instant Key Delivery</li>
+      </ul>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20buy%20a%20Craftland%20API%20Key%20from%20FFSLK%20STORE.%20Please%20assist%20me%21" class="btn btn-primary btn-pkg" target="_blank" style="background:#3b82f6;">BUY CRAFTLAND API KEY</a>
+    </div>
+
+    <!-- SPLASH API -->
+    <div class="package-card" style="border-color:rgba(59,130,246,0.5);">
+      <div class="pkg-title" style="color:#3b82f6;">SPLASH API</div>
+      <ul class="pkg-features">
+        <li><span class="icon">💥</span> Splash Screen Data</li>
+        <li><span class="icon">⚡</span> Real-time Access</li>
+        <li><span class="icon">🛡</span> Instant Key Delivery</li>
+      </ul>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20buy%20a%20Splash%20API%20Key%20from%20FFSLK%20STORE.%20Please%20assist%20me%21" class="btn btn-primary btn-pkg" target="_blank" style="background:#3b82f6;">BUY SPLASH API KEY</a>
+    </div>
+
+  </div>
+  </div><!-- end apiPackagesGrid -->
+</section>
+
+<script>
+  function toggleAPIPackages() {
+    const grid = document.getElementById("apiPackagesGrid");
+    const btn = document.getElementById("apiToggleBtn");
+    const isHidden = grid.style.display === "none";
+    grid.style.display = isHidden ? "block" : "none";
+    btn.textContent = isHidden ? "✖ HIDE API PACKAGES ▲" : "🚀 VIEW API PACKAGES ▼";
+    btn.style.background = isHidden ? "linear-gradient(135deg,#ef4444,#dc2626)" : "linear-gradient(135deg,#3b82f6,#60a5fa)";
+    if (isHidden) {
+      setTimeout(function() { document.getElementById("levelup").scrollIntoView({ behavior: "smooth", block: "start" }); }, 50);
+    }
+  }
+</script>
+
+<!-- VIP RESELLER PACKAGE -->
+<section class="section" style="background:linear-gradient(135deg,#09090f,#0d0d1a);padding:50px 24px;">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="border:2px solid #f5c518;background:linear-gradient(135deg,#0f0f1c,#12121e);border-radius:12px;padding:36px 32px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(245,197,24,0.03) 0px,transparent 2px,transparent 40px);pointer-events:none;"></div>
+      <div style="position:absolute;inset:0;box-shadow:inset 0 0 60px rgba(245,197,24,0.18);pointer-events:none;border-radius:12px;"></div>
+      <!-- Gold shimmer top bar -->
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#f5c518,#ffaa00,#f5c518,transparent);border-radius:12px 12px 0 0;pointer-events:none;"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;position:relative;z-index:1;">
+        <div style="flex:1;min-width:200px;">
+          <div style="display:inline-block;background:linear-gradient(90deg,#f5c518,#ffaa00);color:#000;font-family:'Arial Black',Arial,sans-serif;font-size:0.6rem;font-weight:900;letter-spacing:2px;padding:3px 12px;border-radius:100px;margin-bottom:10px;">⭐ MOST POPULAR</div>
+          <div style="font-family:'Arial Black',Arial,sans-serif;font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,#f5c518,#ffaa00,#fff8dc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:none;filter:drop-shadow(0 0 20px rgba(245,197,24,0.7));letter-spacing:2px;line-height:1;">VIP</div>
+          <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1rem;font-weight:900;color:#fff;letter-spacing:3px;margin-bottom:16px;">RESELLER PACKAGE</div>
+          <ul class="pkg-features" style="margin-bottom:0;">
+            <li><span class="icon">👑</span> Unlimited Orders Access</li>
+            <li><span class="icon">💎</span> Special Reseller Prices</li>
+            <li><span class="icon">🎧</span> Priority Delivery Support</li>
+            <li><span class="icon">🤝</span> Trusted Partnership</li>
+            <li style="color:#f5c518;font-weight:700;"><span class="icon">🔒</span> Limited Slots Only</li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;min-width:160px;">
+          <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1rem;font-weight:900;color:#f5c518;letter-spacing:2px;text-align:center;text-shadow:0 0 12px rgba(245,197,24,0.6);">CONTACT US</div>
+          <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20be%20a%20VIP%20Reseller%20at%20FFSLK%20STORE.%20How%20can%20I%20join%20the%20reseller%20program%3F%20%F0%9F%91%91" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,#f5c518,#ffaa00);color:#100e00;font-family:'Arial Black',Arial,sans-serif;font-size:0.82rem;font-weight:900;letter-spacing:2px;padding:13px 24px;border-radius:6px;text-decoration:none;box-shadow:0 0 28px rgba(245,197,24,0.6),0 4px 16px rgba(245,197,24,0.3);">CONTACT NOW ➤</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FFSLK TEAM -->
+<section class="section" id="vip" style="background:linear-gradient(135deg,#09090f,#0d0d1a);">
+  <div class="section-header">
+    <span class="section-eyebrow" style="color:#22c55e;">⭐ Exclusive</span>
+    <h2 class="section-title" style="-webkit-text-stroke:1px #22c55e;color:#fff;">FFSLK <span style="color:#22c55e;">TEAM</span></h2>
+    <div class="divider" style="background:linear-gradient(90deg,#22c55e,#16a34a);"></div>
+    <p class="section-desc">Enter your exclusive FFSLK TEAM code to unlock special offers.</p>
+  </div>
+
+  <!-- CODE GATE -->
+  <div id="vip-gate" style="max-width:460px;margin:0 auto;text-align:center;">
+    <div style="border:2px solid rgba(245,197,24,0.3);border-radius:12px;padding:36px 28px;background:rgba(245,197,24,0.04);">
+      <div style="font-size:2.5rem;margin-bottom:12px;">🔐</div>
+      <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1rem;color:#f5c518;letter-spacing:3px;margin-bottom:8px;">ENTER FFSLK TEAM CODE</div>
+      <div style="font-size:0.8rem;color:#888;margin-bottom:24px;">Your exclusive code unlocks FFSLK TEAM special offers</div>
+      <input id="vip-code-input" type="text" placeholder="Enter code here..." style="width:100%;background:#0f0d00;border:2px solid rgba(245,197,24,0.3);border-radius:6px;padding:13px 18px;color:#fff;font-family:'Arial Black',Arial,sans-serif;font-size:0.9rem;letter-spacing:3px;text-align:center;outline:none;margin-bottom:14px;text-transform:uppercase;" oninput="this.value=this.value.toUpperCase()"/>
+      <div id="vip-code-error" style="color:#ef4444;font-size:0.75rem;font-weight:700;letter-spacing:1px;margin-bottom:10px;display:none;">❌ INVALID CODE — TRY AGAIN</div>
+      <button onclick="checkVIPCode()" style="width:100%;background:#22c55e;color:#001a08;font-family:'Arial Black',Arial,sans-serif;font-size:0.88rem;font-weight:900;letter-spacing:2px;padding:13px;border:none;border-radius:6px;cursor:pointer;box-shadow:0 0 20px rgba(34,197,94,0.4);transition:all 0.2s;">UNLOCK ➤</button>
+    </div>
+  </div>
+
+
+  <!-- SPECIAL OFFERS -->
+  <div id="vip-special" style="display:none;max-width:860px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:36px;">
+      <div style="font-size:2.5rem;margin-bottom:10px;">👑</div>
+      <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1.6rem;color:#f5c518;letter-spacing:3px;text-shadow:0 0 20px rgba(245,197,24,0.5);">WELCOME TO FFSLK TEAM!</div>
+      <div style="font-size:0.85rem;color:#888;margin-top:8px;">Join our exclusive community and unlock reseller benefits.</div>
+    </div>
+
+    <!-- COMMUNITY CARDS -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:16px;margin-bottom:32px;">
+
+      <!-- WHATSAPP GROUP -->
+      <div style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:2px solid #25d366;border-radius:12px;padding:28px 22px;text-align:center;box-shadow:0 0 24px rgba(37,211,102,0.15);">
+        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1.25rem;color:#25d366;letter-spacing:2px;margin-bottom:8px;font-weight:900;">WHATSAPP GROUP</div>
+        <div style="font-size:0.78rem;color:#888;line-height:1.6;margin-bottom:18px;">Join the official FFSLK TEAM WhatsApp group for exclusive deals, updates and reseller offers.</div>
+        <a href="https://chat.whatsapp.com/HVshzFRwTIy80ZppbnxDVZ" target="_blank" style="display:block;background:#25d366;color:#000;font-family:'Arial Black',Arial,sans-serif;font-size:0.8rem;font-weight:900;letter-spacing:2px;padding:13px;border-radius:6px;text-decoration:none;box-shadow:0 0 16px rgba(37,211,102,0.4);">JOIN NOW ➤</a>
+      </div>
+
+      <!-- TELEGRAM GROUP -->
+      <div style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:2px solid rgba(0,136,204,0.5);border-radius:12px;padding:28px 22px;text-align:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:10px;right:10px;background:rgba(0,136,204,0.12);border:1px solid rgba(0,136,204,0.4);border-radius:100px;padding:3px 10px;font-family:'Arial Black',Arial,sans-serif;font-size:0.55rem;color:#0088cc;letter-spacing:2px;">🔜 COMING SOON</div>
+        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1.25rem;color:#0088cc;letter-spacing:2px;margin-bottom:8px;font-weight:900;">TELEGRAM GROUP</div>
+        <div style="font-size:0.78rem;color:#888;line-height:1.6;margin-bottom:18px;">Our Telegram group is launching soon — stay tuned for exclusive updates and flash deals.</div>
+        <div style="display:inline-block;background:rgba(0,136,204,0.1);border:2px dashed rgba(0,136,204,0.4);border-radius:8px;padding:12px 20px;font-family:'Arial Black',Arial,sans-serif;font-size:0.72rem;color:#0088cc;letter-spacing:2px;">⏳ LAUNCHING SOON</div>
+      </div>
+
+      <!-- DISCORD COMING SOON -->
+      <div style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:2px solid rgba(88,101,242,0.4);border-radius:12px;padding:28px 22px;text-align:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:10px;right:10px;background:rgba(88,101,242,0.15);border:1px solid rgba(88,101,242,0.4);border-radius:100px;padding:3px 10px;font-family:'Arial Black',Arial,sans-serif;font-size:0.55rem;color:#5865f2;letter-spacing:2px;">🔜 COMING SOON</div>
+        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1.25rem;color:#5865f2;letter-spacing:2px;margin-bottom:8px;font-weight:900;">DISCORD SERVER</div>
+        <div style="font-size:0.78rem;color:#888;line-height:1.6;margin-bottom:18px;">Our Discord server is launching soon — tournaments, giveaways and reseller chat await.</div>
+        <div style="display:inline-block;background:rgba(88,101,242,0.12);border:2px dashed rgba(88,101,242,0.5);border-radius:8px;padding:12px 20px;font-family:'Arial Black',Arial,sans-serif;font-size:0.72rem;color:#5865f2;letter-spacing:2px;">⏳ LAUNCHING SOON</div>
+      </div>
+
+    </div>
+
+    <!-- RESELLER OFFERS -->
+    <div style="font-family:'Arial Black',Arial,sans-serif;font-size:0.8rem;color:#f5c518;letter-spacing:3px;text-align:center;margin-bottom:16px;">⚡ RESELLER OFFERS</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:14px;margin-bottom:28px;">
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20have%20the%20FFSLK%20Team%20code%20and%20I%20wanna%20discuss%20Glory%20Bot%20reseller%20packages%20%F0%9F%91%91" target="_blank" style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center;text-decoration:none;transition:all 0.2s;display:block;">
+        <div style="font-size:1.6rem;margin-bottom:8px;">⚡</div>
+        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:0.78rem;color:#f5c518;letter-spacing:1px;margin-bottom:6px;">GLORY BOT</div>
+        <div style="font-size:0.7rem;color:#888;">Bulk reseller rates</div>
+      </a>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20have%20the%20FFSLK%20Team%20code%20and%20I%20wanna%20discuss%20Likes%20reseller%20packages%20%F0%9F%91%91" target="_blank" style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center;text-decoration:none;transition:all 0.2s;display:block;">
+        <div style="font-size:1.6rem;margin-bottom:8px;">❤️</div>
+        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:0.78rem;color:#f5c518;letter-spacing:1px;margin-bottom:6px;">PROFILE LIKES</div>
+        <div style="font-size:0.7rem;color:#888;">Priority delivery</div>
+      </a>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20have%20the%20FFSLK%20Team%20code%20and%20I%20wanna%20discuss%20Proxy%20Server%20reseller%20packages%20%F0%9F%91%91" target="_blank" style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center;text-decoration:none;transition:all 0.2s;display:block;">
+        <div style="font-size:1.6rem;margin-bottom:8px;">🔮</div>
+        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:0.78rem;color:#f5c518;letter-spacing:1px;margin-bottom:6px;">PROXY SERVER</div>
+        <div style="font-size:0.7rem;color:#888;">Special pricing</div>
+      </a>
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20have%20the%20FFSLK%20Team%20code%20and%20I%20wanna%20discuss%20a%20custom%20reseller%20package%20%F0%9F%91%91" target="_blank" style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center;text-decoration:none;transition:all 0.2s;display:block;">
+        <div style="font-size:1.6rem;margin-bottom:8px;">💬</div>
+        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:0.78rem;color:#f5c518;letter-spacing:1px;margin-bottom:6px;">CUSTOM DEAL</div>
+        <div style="font-size:0.7rem;color:#888;">Message us</div>
+      </a>
+    </div>
+
+    <div style="text-align:center;">
+      <button onclick="lockVIP()" style="background:transparent;color:#888;font-family:'Arial Black',Arial,sans-serif;font-size:0.7rem;letter-spacing:2px;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:8px 18px;cursor:pointer;">🔒 LOCK & EXIT</button>
+    </div>
+  </div>
+
+</section>
+
+<section class="section uid-section" id="uid">
+  <div class="section-header">
+    <h2 class="uid-title" style="font-family:'Arial Black',Arial,sans-serif;font-size:clamp(1.6rem,4vw,2.8rem);font-weight:900;-webkit-text-stroke:1px currentColor;color:var(--text);">CUSTOMIZED <span style="color:var(--gold);">UIDS</span></h2>
+    <div class="divider"></div>
+    <p class="uid-desc" style="max-width:520px;margin:14px auto 0;text-align:center;">Grab a unique Free Fire UID that stands out from the crowd. Stock is strictly limited — once it's gone, it's gone for good.</p>
+  </div>
+
+  <style>
+    .uid-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px,100%), 1fr)); gap: 10px; margin-bottom: 28px; }
+    .uid-example-item { background: var(--dark2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 0.92rem; color: #ffffff; display: flex; align-items: center; justify-content: space-between; transition: all 0.2s; gap: 10px; }
+    .uid-example-item:hover { border-color: var(--gold); background: rgba(59,130,246,0.06); transform: translateX(3px); }
+    .uid-example-item.in-cart { border-color: #2ecc40; background: rgba(46,204,64,0.05); }
+    .uid-cart-btn { font-family: 'Arial Black', Arial, sans-serif; font-size: 0.6rem; font-weight: 900; letter-spacing: 1px; padding: 5px 10px; border-radius: 4px; border: none; cursor: pointer; white-space: nowrap; transition: all 0.2s; background: var(--gold); color: var(--dark); flex-shrink: 0; }
+    .uid-example-item.in-cart .uid-cart-btn { background: #ef4444; color: #fff; }
+    .uid-sold { opacity: 0.45; pointer-events: none; }
+    .uid-soldout-tag { font-family: 'Rajdhani', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; color: var(--orange); text-transform: uppercase; flex-shrink: 0; }
+    .tier-tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 32px; flex-wrap: nowrap; width: 100%; max-width: 960px; margin-left: auto; margin-right: auto; }
+    .tier-btn { font-family: 'Arial Black', Arial, sans-serif; font-size: 0.82rem; font-weight: 900; padding: 12px 0; border-radius: 6px; border: 2px solid var(--border); background: var(--card); color: var(--muted); cursor: pointer; transition: all 0.2s; letter-spacing: 1px; flex: 1; text-align: center; min-width: 0; }
+    .tier-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .tier-btn.active-t1 { background: var(--gold); color: var(--dark); border-color: var(--gold); box-shadow: var(--glow); }
+    .tier-btn.active-t2 { background: var(--orange); color: #fff; border-color: var(--orange); box-shadow: var(--glow-orange); }
+    .tier-btn.active-t3 { background: linear-gradient(135deg,#f5c518,#ffaa00); color: #000; border-color: #f5c518; box-shadow: 0 0 24px rgba(245,197,24,0.6); text-shadow: none; }
+    .tier-btn:nth-child(3) { color: #f5c518; border-color: rgba(245,197,24,0.4); }
+    .tier-btn:nth-child(3):not(.active-t3):hover { border-color: #f5c518; color: #f5c518; background: rgba(245,197,24,0.08); }
+    .tier-panel { display: none; }
+    .tier-panel.active { display: block; }
+
+    /* FLOATING CART BUTTON */
+    .cart-float { position: fixed; bottom: 28px; right: 28px; z-index: 300; background: var(--gold); color: var(--dark); border: none; border-radius: 50px; padding: 13px 22px; font-family: 'Arial Black', Arial, sans-serif; font-size: 0.78rem; font-weight: 900; letter-spacing: 2px; cursor: pointer; box-shadow: 0 4px 24px rgba(59,130,246,0.5); display: none; align-items: center; gap: 8px; transition: all 0.2s; }
+    .cart-float:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(59,130,246,0.7); }
+    .cart-count { background: #ef4444; color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
+
+    /* CART SIDEBAR */
+    .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 490; display: none; backdrop-filter: blur(4px); }
+    .cart-overlay.open { display: block; }
+    .cart-sidebar { position: fixed; top: 0; right: -400px; width: 360px; height: 100vh; background: var(--dark2); border-left: 1px solid var(--border); z-index: 500; display: flex; flex-direction: column; transition: right 0.3s cubic-bezier(0.4,0,0.2,1); box-shadow: -4px 0 40px rgba(0,0,0,0.6); }
+    .cart-sidebar.open { right: 0; }
+    .cart-header { padding: 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .cart-title { font-family: 'Arial Black', Arial, sans-serif; font-size: 0.95rem; color: var(--gold); letter-spacing: 2px; }
+    .cart-close { background: none; border: 1px solid var(--border); color: var(--muted); font-size: 1.1rem; cursor: pointer; border-radius: 4px; padding: 4px 10px; transition: all 0.2s; }
+    .cart-close:hover { border-color: #ef4444; color: #ef4444; }
+    .cart-items { flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+    .cart-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 0.82rem; color: #fff; gap: 8px; }
+    .cart-item-tier { font-family: 'Rajdhani', sans-serif; font-size: 0.62rem; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
+    .cart-item-remove { background: none; border: none; color: #ef4444; font-size: 1rem; cursor: pointer; flex-shrink: 0; padding: 2px 6px; border-radius: 4px; transition: background 0.15s; }
+    .cart-item-remove:hover { background: rgba(239,68,68,0.1); }
+    .cart-empty { text-align: center; padding: 48px 20px; color: var(--muted); }
+    .cart-empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .cart-footer { padding: 16px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; }
+    .cart-summary { font-family: 'Arial Black', Arial, sans-serif; font-size: 0.75rem; color: var(--muted); letter-spacing: 1px; text-align: center; }
+    .cart-checkout { display: block; width: 100%; background: #25d366; color: #fff; font-family: 'Arial Black', Arial, sans-serif; font-size: 0.82rem; font-weight: 900; letter-spacing: 2px; padding: 14px; border: none; border-radius: 8px; cursor: pointer; text-align: center; text-decoration: none; box-shadow: 0 0 20px rgba(37,211,102,0.35); transition: all 0.2s; }
+    .cart-checkout:hover { box-shadow: 0 0 32px rgba(37,211,102,0.6); transform: translateY(-1px); }
+    .cart-clear { display: block; width: 100%; background: none; border: 1px solid rgba(239,68,68,0.25); color: #ef4444; font-family: 'Arial Black', Arial, sans-serif; font-size: 0.68rem; letter-spacing: 1px; padding: 8px; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+    .cart-clear:hover { background: rgba(239,68,68,0.08); }
+    @media (max-width: 700px) { .cart-sidebar { width: 100%; right: -100%; } }
+  </style>
+
+  <div style="max-width:960px;margin:0 auto;">
+
+    <!-- TAB BUTTONS -->
+    <div class="tier-tabs">
+      <button class="tier-btn active-t1" onclick="showTier(1)">BASIC</button>
+      <button class="tier-btn" onclick="showTier(2)">PREMIUM</button>
+      <button class="tier-btn" onclick="showTier(3)">⭐ VIP</button>
+    </div>
+
+    <!-- TIER 1 -->
+    <div class="tier-panel active" id="tier1">
+      <div class="uid-grid">
+        <div class="uid-example-item"><span>15270000009</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15270000008</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15270000006</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15270000003</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15270000002</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15269999998</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15269999997</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15269999996</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15269999994</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15269999993</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15269999992</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15269999991</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15269999990</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15222221001</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15222221000</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15149999998</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15149999995</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15149999994</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15149999993</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14999999778</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14999999771</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14999999770</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14999998886</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14999998884</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14770777709</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14770777708</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14411111666</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14377777720</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14377777713</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14377777712</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14377777709</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14377777708</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14377777706</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14377777702</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15277777000</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200001777</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200001177</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200001000</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200000999</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200000888</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200000800</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200000777</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200000088</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200000077</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200000066</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200000060</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200000050</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200000044</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200000040</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15200000033</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000009999</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000007999</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000007787</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000007747</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000007737</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000007677</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000007477</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000006669</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000006655</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000006644</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000006077</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000005010</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15000001990</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14377777555</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14377777333</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14377777222</span><button class="uid-cart-btn">🛒 ADD</button></div>
+      </div>
+    </div>
+
+    <!-- TIER 2 -->
+    <div class="tier-panel" id="tier2">
+      <div class="uid-grid">
+        <div class="uid-example-item"><span>14999999902</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14699999998</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14399999996</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14399999995</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14399999992</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14399999977</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14399999933</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14399999333</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14377777999</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15333333302</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15288888877</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14800000142</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14800000048</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14800000047</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14800000027</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14800000015</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14800000014</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14699999997</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14599999998</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14599999997</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14414444047</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14369999898</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14369999889</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14369996999</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>14369996666</span><button class="uid-cart-btn">🛒 ADD</button></div>
+      </div>
+    </div>
+
+    <!-- TIER 3 -->
+    <div class="tier-panel" id="tier3">
+      <div class="uid-grid">
+        <div class="uid-example-item"><span>15555555575</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555574</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555573</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555572</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555571</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555565</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555561</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555512</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555510</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555509</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555508</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555507</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555505</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555504</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555503</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555502</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555546</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555516</span><button class="uid-cart-btn">🛒 ADD</button></div>
+        <div class="uid-example-item"><span>15555555549</span><button class="uid-cart-btn">🛒 ADD</button></div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:36px;">
+      <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20buy%20a%20Customized%20UID.%20Can%20you%20show%20me%20available%20UIDs%20and%20prices%3F%20%F0%9F%8E%AF" target="_blank" style="background:transparent;color:#25d366;font-family:'Arial Black',Arial,sans-serif;font-size:0.9rem;font-weight:900;letter-spacing:3px;padding:13px 32px;border:2px solid #25d366;border-radius:6px;cursor:pointer;text-decoration:none;box-shadow:0 0 16px rgba(37,211,102,0.4),inset 0 0 16px rgba(37,211,102,0.05);text-shadow:0 0 8px #25d366;display:inline-block;">CONTACT ME TO BUY</a>
+    </div>
+
+  </div>
+
+  </script>
+
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section" id="community">
+  <div class="section-header">
+    <span class="section-eyebrow">💎 Why Us</span>
+    <h2 class="section-title">WHY CHOOSE <span>FFSLK STORE</span></h2>
+    <div class="divider"></div>
+    <p class="section-desc">Trusted by thousands of Free Fire players across Sri Lanka.</p>
+  </div>
+  <div class="community-grid">
+    <div class="community-card">
+      <div class="community-icon">⚡</div>
+      <div class="community-name">INSTANT DELIVERY</div>
+      <div class="community-desc">Orders are processed fast — most delivered within minutes of payment confirmation.</div>
+    </div>
+    <div class="community-card">
+      <div class="community-icon">🛡️</div>
+      <div class="community-name">100% SAFE</div>
+      <div class="community-desc">All boosts use secure, gradual methods — no bans, no risks, no worries.</div>
+    </div>
+    <div class="community-card">
+      <div class="community-icon">🤝</div>
+      <div class="community-name">TRUSTED SERVICE</div>
+      <div class="community-desc">Over 9,999 orders completed with a proven track record across Sri Lanka.</div>
+    </div>
+    <div class="community-card">
+      <div class="community-icon">📲</div>
+      <div class="community-name">24/7 SUPPORT</div>
+      <div class="community-desc">Got a question? Our team is always available on WhatsApp — day or night.</div>
+    </div>
+    <div class="community-card">
+      <div class="community-icon">💰</div>
+      <div class="community-name">BEST PRICES</div>
+      <div class="community-desc">Premium quality at the most affordable rates — no hidden fees, ever.</div>
+    </div>
+    <div class="community-card">
+      <div class="community-icon">🔁</div>
+      <div class="community-name">REPEAT CUSTOMERS</div>
+      <div class="community-desc">Our players keep coming back — because results speak louder than promises.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT METHODS -->
+<section class="section" style="padding:50px 24px;background:var(--dark2);border-top:1px solid var(--border);">
+  <div class="section-header" style="margin-bottom:36px;">
+    <span class="section-eyebrow">💳 Payments</span>
+    <h2 class="section-title" style="font-family:'Arial Black',Arial,sans-serif;-webkit-text-stroke:1px currentColor;">ACCEPTED <span style="color:var(--gold);">PAYMENTS</span></h2>
+    <div class="divider"></div>
+    <p class="section-desc">We accept multiple payment methods for your convenience.</p>
+  </div>
+  <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto;">
+
+    <!-- BANK TRANSFER -->
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 32px;text-align:center;flex:1;min-width:200px;transition:all 0.2s;" onmouseover="this.style.borderColor='#3b82f6'" onmouseout="this.style.borderColor='rgba(59,130,246,0.2)'">
+      <div style="font-size:2.5rem;margin-bottom:12px;">🏦</div>
+      <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1rem;font-weight:900;color:#fff;letter-spacing:2px;margin-bottom:8px;">BANK TRANSFER</div>
+      <div style="font-size:0.78rem;color:#888;line-height:1.6;">Local Sri Lanka bank transfers accepted.<br>Contact us for bank details.</div>
+      <div style="margin-top:14px;display:inline-block;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:100px;padding:4px 14px;font-size:0.65rem;font-weight:700;color:#3b82f6;letter-spacing:2px;">LKR ONLY</div>
+    </div>
+
+    <!-- BINANCE -->
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 32px;text-align:center;flex:1;min-width:200px;transition:all 0.2s;" onmouseover="this.style.borderColor='#f0b90b'" onmouseout="this.style.borderColor='rgba(59,130,246,0.2)'">
+      <div style="font-size:2.5rem;margin-bottom:12px;">🔶</div>
+      <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1rem;font-weight:900;color:#f0b90b;letter-spacing:2px;margin-bottom:8px;">BINANCE PAY</div>
+      <div style="font-size:0.78rem;color:#888;line-height:1.6;">Pay securely via Binance Pay.<br>Fast & instant crypto payments.</div>
+      <div style="margin-top:14px;display:inline-block;background:rgba(240,185,11,0.1);border:1px solid rgba(240,185,11,0.3);border-radius:100px;padding:4px 14px;font-size:0.65rem;font-weight:700;color:#f0b90b;letter-spacing:2px;">USD / CRYPTO</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT BAR -->
+<div class="contact-bar">
+  <span class="contact-bar-text" style="font-family:'Arial Black',Arial,sans-serif;font-size:1rem;-webkit-text-stroke:0.5px currentColor;">Order Now:</span>
+  <a href="https://wa.me/94741100921">072 127 5765</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">FFSLK STORE</div>
+  <p class="footer-copy">© 2026 FFSLK STORE — ALL RIGHTS RESERVED</p>
+</footer>
+
+
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <div class="mobile-nav-inner">
+    <button class="mob-nav-item active" data-target="home" onclick="mobileNavTo('home', this)">
+      <span class="mob-icon">🏠</span>
+      <span>Home</span>
+    </button>
+    <button class="mob-nav-item red-tab" data-target="guild" onclick="mobileNavTo('guild', this)">
+      <span class="mob-icon">⚡</span>
+      <span>Glory Bot</span>
+    </button>
+    <button class="mob-nav-item red-tab" data-target="likes" onclick="mobileNavTo('likes', this)">
+      <span class="mob-icon">❤️</span>
+      <span>Likes</span>
+    </button>
+    <button class="mob-nav-item" data-target="uid" onclick="mobileNavTo('uid', this)">
+      <span class="mob-icon">🎯</span>
+      <span>Rare UID</span>
+    </button>
+    <button class="mob-nav-item purple-tab" data-target="vipserver" onclick="mobileNavTo('vipserver', this)">
+      <span class="mob-icon">🔥</span>
+      <span>VIP Server</span>
+    </button>
+    <button class="mob-nav-item green-tab" data-target="vip" onclick="mobileNavTo('vip', this)">
+      <span class="mob-icon">⭐</span>
+      <span>FF Team</span>
+    </button>
+  </div>
+</nav>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <div class="cart-title">🛒 YOUR CART</div>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">🛒</div>
+      <div>No UIDs in cart yet.<br>Tap ADD on any UID to select it.</div>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-summary" id="cartSummary"></div>
+    <a id="cartCheckout" class="cart-checkout" href="#" target="_blank">💬 ORDER VIA WHATSAPP</a>
+    <button class="cart-clear" onclick="clearCart()">🗑 CLEAR CART</button>
+  </div>
+</div>
+
+<!-- FLOATING CART BUTTON -->
+<button class="cart-float" id="cartFloat" onclick="openCart()">
+  🛒 CART <span class="cart-count" id="cartCountBadge">0</span>
+</button>
+
+<script>
+  const allPrices = {
+    LKR: { 's1':'500','s2':'1,000','s3':'1,500','s4':'2,000','s5':'2,500','s6':'2,750','s6old':'LKR 3,000','likes':'2,000','3d':'300','7d':'1,500','30d':'6,000' },
+    USD: { 's1':'1.99','s2':'3.99','s3':'5.99','s4':'7.99','s5':'9.99','s6':'11.00','s6old':'USD 12.00','likes':'19.99','3d':'1.00','7d':'5.00','30d':'20.00' }
+  };
+  let cart = [];
+
+  function getTier(uid) {
+    const t1 = ['15270','15269','15222','15149','14999','14770','14411','14377','15277','15200','15000'];
+    const t2 = ['14999999902','14699','14399','14377777999','15333','15288','14800','14599','14414','14369'];
+    if(t2.some(p => uid.startsWith(p) || uid === p)) return 'PREMIUM';
+    if(uid.startsWith('1555')) return 'VIP';
+    return 'BASIC';
+  }
+
+  function toggleCart(el) {
+    const uid = el.querySelector('span').textContent.trim();
+    if(el.classList.contains('in-cart')) {
+      cart = cart.filter(u => u !== uid);
+      el.classList.remove('in-cart');
+      el.querySelector('.uid-cart-btn').textContent = '🛒 ADD';
+    } else {
+      if(!cart.includes(uid)) cart.push(uid);
+      el.classList.add('in-cart');
+      el.querySelector('.uid-cart-btn').textContent = '✓ ADDED';
+    }
+    updateCartUI();
+  }
+
+  function updateCartUI() {
+    const float = document.getElementById('cartFloat');
+    const badge = document.getElementById('cartCountBadge');
+    const itemsEl = document.getElementById('cartItems');
+    const summary = document.getElementById('cartSummary');
+    const checkout = document.getElementById('cartCheckout');
+
+    badge.textContent = cart.length;
+    float.style.display = cart.length > 0 ? 'flex' : 'none';
+
+    if(cart.length === 0) {
+      itemsEl.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">🛒</div><div>No UIDs in cart yet.<br>Tap ADD on any UID to select it.</div></div>';
+      summary.textContent = '';
+    } else {
+      itemsEl.innerHTML = cart.map(uid => `
+        <div class="cart-item">
+          <div>
+            <div class="cart-item-tier">${getTier(uid)} TIER</div>
+            <div>${uid}</div>
+          </div>
+          <button class="cart-item-remove" onclick="removeFromCart('${uid}')">✕</button>
+        </div>
+      `).join('');
+      summary.textContent = `${cart.length} UID${cart.length > 1 ? 's' : ''} selected`;
+      const msg = encodeURIComponent('Hi! I wanna buy these Customized UIDs:\n\n' + cart.map((u,i) => `${i+1}. ${u} (${getTier(u)} Tier)`).join('\n') + '\n\nPlease send me the price and details! 🎯');
+      checkout.href = `https://wa.me/94741100921?text=${msg}`;
+    }
+  }
+
+  function removeFromCart(uid) {
+    cart = cart.filter(u => u !== uid);
+    document.querySelectorAll('.uid-example-item').forEach(el => {
+      if(el.querySelector('span') && el.querySelector('span').textContent.trim() === uid) {
+        el.classList.remove('in-cart');
+        el.querySelector('.uid-cart-btn').textContent = '🛒 ADD';
+      }
+    });
+    updateCartUI();
+  }
+
+  function clearCart() {
+    cart = [];
+    document.querySelectorAll('.uid-example-item.in-cart').forEach(el => {
+      el.classList.remove('in-cart');
+      el.querySelector('.uid-cart-btn').textContent = '🛒 ADD';
+    });
+    updateCartUI();
+  }
+
+  function openCart() {
+    document.getElementById('cartSidebar').classList.add('open');
+    document.getElementById('cartOverlay').classList.add('open');
+  }
+
+  function closeCart() {
+    document.getElementById('cartSidebar').classList.remove('open');
+    document.getElementById('cartOverlay').classList.remove('open');
+  }
+
+  // Attach click to all uid items
+  document.addEventListener('click', function(e) {
+    const item = e.target.closest('.uid-example-item');
+    if(item && !item.classList.contains('uid-sold') && (e.target.classList.contains('uid-cart-btn') || e.target === item)) {
+      toggleCart(item);
+    }
+  });
+
+  function showTier(num) {
+    document.querySelectorAll('.tier-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active-t1','active-t2','active-t3'));
+    document.getElementById('tier' + num).classList.add('active');
+    const btns = document.querySelectorAll('.tier-btn');
+    btns[num - 1].classList.add('active-t' + num);
+  }
+
+  function setGlobalCurrency(cur) {
+    const p = allPrices[cur];
+    ['s1','s2','s3','s4','s5','s6'].forEach(k => {
+      const el = document.getElementById('price-'+k);
+      const cel = document.getElementById('cur-'+k);
+      if(el) el.textContent = p[k];
+      if(cel) cel.textContent = cur;
+    });
+    const s6old = document.getElementById('price-s6-old');
+    if(s6old) s6old.textContent = p['s6old'];
+    const lp = document.getElementById('price-likes');
+    if(lp) lp.innerHTML = '<span id="cur-likes">'+cur+'</span> '+p['likes'];
+    ['3d','7d','30d'].forEach(k => {
+      const el = document.getElementById('price-'+k);
+      const cel = document.getElementById('cur-'+k);
+      if(el) el.textContent = p[k];
+      if(cel) cel.textContent = cur;
+    });
+    document.getElementById('gbtn-lkr').style.background = cur==='LKR'?'#3b82f6':'transparent';
+    document.getElementById('gbtn-lkr').style.color = cur==='LKR'?'#fff':'#888';
+    document.getElementById('gbtn-usd').style.background = cur==='USD'?'#3b82f6':'transparent';
+    document.getElementById('gbtn-usd').style.color = cur==='USD'?'#fff':'#888';
+  }
+
+  const VIP_CODES = [
+    'FFLK-ADMIN-1515'
+  ];
+  function checkVIPCode() {
+    const input = document.getElementById('vip-code-input').value.trim().toUpperCase();
+    const err = document.getElementById('vip-code-error');
+    if(VIP_CODES.includes(input)) {
+      document.getElementById('vip-gate').style.display = 'none';
+      document.getElementById('vip-special').style.display = 'block';
+      err.style.display = 'none';
+    } else {
+      err.style.display = 'block';
+      document.getElementById('vip-code-input').style.borderColor = '#ef4444';
+      setTimeout(() => { document.getElementById('vip-code-input').style.borderColor = 'rgba(245,197,24,0.3)'; }, 1500);
+    }
+  }
+  function lockVIP() {
+    document.getElementById('vip-gate').style.display = 'block';
+    document.getElementById('vip-special').style.display = 'none';
+    document.getElementById('vip-code-input').value = '';
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const inp = document.getElementById('vip-code-input');
+    if(inp) inp.addEventListener('keydown', function(e) { if(e.key==='Enter') checkVIPCode(); });
+  });
+</script>
+</body>
+</html>
+<script>
+  // ---- MOBILE BOTTOM NAV JS ----
+  function mobileNavTo(target, btn) {
+    document.querySelectorAll('.mob-nav-item').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (target === 'home') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    const el = document.getElementById(target);
+    if (!el) return;
+    const topNav = document.querySelector('nav:not(.mobile-nav)');
+    const navH = topNav ? topNav.offsetHeight : 60;
+    const elTop = el.getBoundingClientRect().top + window.scrollY - navH - 12;
+    window.scrollTo({ top: elTop, behavior: 'smooth' });
+  }
+
+  (function() {
+    const sections = ['guild','likes','uid','vipserver','vip'];
+    let ticking = false;
+    function updateActiveNav() {
+      const topNav = document.querySelector('nav:not(.mobile-nav)');
+      const navH = topNav ? topNav.offsetHeight + 20 : 80;
+      const scrollY = window.scrollY + navH + 80;
+      let current = 'home';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top + window.scrollY <= scrollY) current = id;
+      });
+      document.querySelectorAll('.mob-nav-item').forEach(b => {
+        b.classList.toggle('active', b.dataset.target === current);
+      });
+    }
+    window.addEventListener('scroll', function() {
+      if (!ticking) { requestAnimationFrame(function() { updateActiveNav(); ticking = false; }); ticking = true; }
+    }, { passive: true });
+  })();
+</script>
