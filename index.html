@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FFSLK STORE — Sri Lanka's Best Gaming Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet" />
+  <title>FFSLK STORE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono&family=Exo+2:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <style>
     :root {
       --gold: #3b82f6;
@@ -18,7 +18,7 @@
       --card: #0f1020;
       --border: rgba(59,130,246,0.2);
       --text: #e8e8f0;
-      --muted: #888;
+      --muted: #b0b8d4;
       --glow: 0 0 24px rgba(59,130,246,0.45);
       --glow-orange: 0 0 28px rgba(239,68,68,0.5);
     }
@@ -30,7 +30,7 @@
     body {
       background: var(--dark);
       color: var(--text);
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'Exo 2', sans-serif;
       font-size: 16px;
       overflow-x: hidden;
       min-height: 100vh;
@@ -62,29 +62,31 @@
 
     /* ---- NAV ---- */
     nav {
-      position: sticky; top: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 32px;
-      background: rgba(9,9,15,0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+      display: none;
     }
     .nav-logo {
-      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-family: 'Exo 2', sans-serif;
       font-weight: 900;
       font-size: 1.5rem;
-      color: var(--gold);
       letter-spacing: 3px;
-      text-shadow: var(--glow);
-      -webkit-text-stroke: 1px currentColor;
+      background: linear-gradient(135deg, #60a5fa, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .nav-logo span { color: var(--orange); }
+    .nav-logo span {
+      background: linear-gradient(135deg, #ef4444, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     nav ul {
       display: flex; gap: 28px; list-style: none;
     }
     nav ul a {
       color: var(--text);
       text-decoration: none;
+      font-family: 'Exo 2', sans-serif;
       font-weight: 800;
       font-size: 1.08rem;
       letter-spacing: 1px;
@@ -93,19 +95,18 @@
     }
     nav ul a:hover { color: var(--gold); }
     .nav-cta {
-      background: var(--gold);
-      color: var(--dark);
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: #fff;
       padding: 9px 22px;
       border-radius: 4px;
-      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-family: 'Exo 2', sans-serif;
       font-size: 0.82rem;
       font-weight: 900;
       letter-spacing: 2px;
       text-decoration: none;
-      -webkit-text-stroke: 0.5px currentColor;
-      transition: background 0.2s, box-shadow 0.2s;
+      transition: opacity 0.2s, box-shadow 0.2s;
     }
-    .nav-cta:hover { background: var(--gold2); box-shadow: var(--glow); }
+    .nav-cta:hover { opacity: 0.85; box-shadow: var(--glow); }
 
     /* ---- HERO ---- */
     .hero {
@@ -123,14 +124,17 @@
 
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(245,197,24,0.08);
+      background: rgba(59,130,246,0.08);
       border: 1px solid var(--border);
       border-radius: 100px;
       padding: 6px 18px;
+      font-family: 'Exo 2', sans-serif;
       font-size: 0.78rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 2px;
       text-transform: uppercase;
+      background-clip: unset;
+      -webkit-text-fill-color: unset;
       color: var(--gold);
       margin-bottom: 28px;
       animation: fadeInDown 0.7s both;
@@ -140,28 +144,47 @@
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
 
     .hero h1 {
-      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-family: 'Exo 2', sans-serif;
       font-size: clamp(3.2rem, 10vw, 7.5rem);
       font-weight: 900;
       line-height: 0.95;
       letter-spacing: -1px;
-      -webkit-text-stroke: 2px currentColor;
-      paint-order: stroke fill;
       animation: fadeInDown 0.7s 0.1s both;
     }
-    .hero h1 .line1 { display: block; color: var(--text); }
-    .hero h1 .line2 { display: block; color: var(--gold); text-shadow: var(--glow); }
+    .hero h1 .line1 {
+      display: block;
+      background: linear-gradient(135deg, #fff 0%, #c0cfff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero h1 .line2 {
+      display: block;
+      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
     .hero-sub {
+      font-family: 'Exo 2', sans-serif;
       max-width: 560px;
       margin: 22px auto 0;
       font-size: 1.1rem;
-      color: var(--muted);
       font-weight: 500;
       line-height: 1.6;
+      background: linear-gradient(90deg, #9aa5c4, #c8d0e8, #9aa5c4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       animation: fadeInDown 0.7s 0.2s both;
     }
-    .hero-sub strong { color: var(--text); }
+    .hero-sub strong {
+      background: linear-gradient(90deg, #e8e8f0, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
     .hero-btns {
       display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
@@ -224,35 +247,56 @@
     }
     .stat-item:last-child { border-right: none; }
     .stat-num {
-      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-family: 'Exo 2', sans-serif;
       font-size: 1.8rem;
       font-weight: 900;
-      color: var(--gold);
-      text-shadow: var(--glow);
-      -webkit-text-stroke: 1px currentColor;
+      background: linear-gradient(135deg, #60a5fa, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .stat-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; font-weight: 600; }
+    .stat-label { font-family: 'Exo 2', sans-serif; font-size: 0.78rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; font-weight: 600; }
 
     /* SECTION HEADER */
     .section { position: relative; z-index: 1; padding: 80px 24px; }
     .section-header { text-align: center; margin-bottom: 52px; }
     .section-eyebrow {
       display: inline-block;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 3px;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.78rem; font-weight: 800; letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--orange);
+      background: linear-gradient(90deg, #ef4444, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 10px;
     }
     .section-title {
-      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-family: 'Exo 2', sans-serif;
       font-size: clamp(1.6rem, 4vw, 2.8rem);
       font-weight: 900;
-      color: var(--text);
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #fff 0%, #c0cfff 50%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       line-height: 1.1;
-      -webkit-text-stroke: 1px currentColor;
     }
-    .section-title span { color: var(--gold); }
-    .section-desc { max-width: 480px; margin: 14px auto 0; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+    .section-title span {
+      background: linear-gradient(135deg, #60a5fa, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-desc {
+      font-family: 'Exo 2', sans-serif;
+      max-width: 480px; margin: 14px auto 0;
+      font-size: 1rem; font-weight: 500; line-height: 1.7;
+      background: linear-gradient(90deg, #9aa5c4, #c8d0e8, #9aa5c4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
     /* PACKAGES GRID */
     .packages-grid {
@@ -283,50 +327,62 @@
       border-color: rgba(245,197,24,0.45);
       box-shadow: 0 8px 40px rgba(245,197,24,0.12);
     }
-    .package-card.popular { border-color: var(--gold); overflow: hidden; }
+    .package-card.popular { border-color: rgba(59,130,246,0.6) !important; overflow: hidden; }
     .package-card.popular::after {
       content: 'POPULAR';
-      position: absolute; top: 20px; right: -30px;
-      background: var(--gold);
-      color: var(--dark);
-      font-family: 'Arial Black', Arial, sans-serif;
-      font-size: 0.65rem;
+      position: absolute;
+      top: 14px;
+      right: -28px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: #fff;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.58rem;
       font-weight: 900;
-      letter-spacing: 2px;
-      width: 120px;
+      letter-spacing: 1.5px;
+      width: 100px;
+      height: 20px;
+      line-height: 20px;
       text-align: center;
-      padding: 6px 0;
       transform: rotate(45deg);
       white-space: nowrap;
-      z-index: 2;
+      z-index: 10;
+      pointer-events: none;
     }
-    .package-card.best { border-color: var(--orange); overflow: hidden; }
+    .package-card.best { border-color: rgba(239,68,68,0.6) !important; overflow: hidden; }
     .package-card.best::after {
       content: 'BEST VALUE';
-      position: absolute; top: 20px; right: -30px;
-      background: var(--orange);
+      position: absolute;
+      top: 18px;
+      right: -36px;
+      background: linear-gradient(135deg, #ef4444, #f97316);
       color: #fff;
-      font-family: 'Arial Black', Arial, sans-serif;
-      font-size: 0.6rem;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.55rem;
       font-weight: 900;
       letter-spacing: 1px;
       width: 120px;
+      height: 22px;
+      line-height: 22px;
       text-align: center;
-      padding: 6px 0;
       transform: rotate(45deg);
       white-space: nowrap;
-      z-index: 2;
+      z-index: 10;
+      pointer-events: none;
     }
 
     .pkg-title {
-      font-family: 'Orbitron', monospace;
+      font-family: 'Exo 2', sans-serif;
       font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, #c0cfff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 16px;
     }
     .pkg-features { list-style: none; margin-bottom: 20px; }
     .pkg-features li {
+      font-family: 'Exo 2', sans-serif;
       font-size: 0.92rem;
       color: var(--muted);
       padding: 5px 0;
@@ -338,11 +394,13 @@
 
     .pkg-price-row { display: flex; align-items: flex-end; gap: 10px; margin-bottom: 16px; }
     .pkg-price {
-      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-family: 'Exo 2', sans-serif;
       font-size: 1.6rem;
       font-weight: 900;
-      color: var(--gold);
-      -webkit-text-stroke: 1px currentColor;
+      background: linear-gradient(135deg, #60a5fa, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .pkg-price-old {
       font-size: 1rem;
@@ -453,13 +511,17 @@
       margin-bottom: 16px;
     }
     .uid-title {
-      font-family: 'Orbitron', monospace;
+      font-family: 'Exo 2', sans-serif;
       font-size: clamp(1.4rem, 3vw, 2.2rem);
       font-weight: 900;
       line-height: 1.1;
       margin-bottom: 14px;
+      background: linear-gradient(135deg, #fff 0%, #c0cfff 50%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .uid-desc { color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+    .uid-desc { font-family: 'Exo 2', sans-serif; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
     .uid-examples {
       display: flex; flex-direction: column; gap: 10px;
     }
@@ -495,12 +557,18 @@
     .community-card:hover { border-color: rgba(245,197,24,0.4); transform: translateY(-3px); }
     .community-icon { font-size: 2rem; margin-bottom: 10px; }
     .community-name {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #fff, #c0cfff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 6px;
     }
-    .community-desc { font-size: 0.82rem; color: var(--muted); margin-bottom: 14px; }
+    .community-desc { font-family: 'Exo 2', sans-serif; font-size: 0.85rem; color: var(--muted); margin-bottom: 14px; line-height: 1.5; }
 
     /* CONTACT BAR */
     .contact-bar {
@@ -534,14 +602,16 @@
       text-align: center;
     }
     .footer-logo {
-      font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+      font-family: 'Exo 2', sans-serif;
       font-size: 2rem;
       font-weight: 900;
-      color: var(--gold);
       letter-spacing: 4px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #60a5fa, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 10px;
-      -webkit-text-stroke: 1.5px currentColor;
-      text-shadow: var(--glow);
     }
     .footer-copy { color: var(--muted); font-size: 0.9rem; letter-spacing: 1px; font-weight: 700; font-family: 'Arial Black', Arial, sans-serif; }
     .footer-copy a { color: var(--gold); text-decoration: none; }
@@ -606,7 +676,7 @@
       gap: 4px;
       padding: 10px 4px 12px;
       text-decoration: none;
-      color: #555570;
+      color: #7a80a0;
       font-family: 'Rajdhani', sans-serif;
       font-size: 0.6rem;
       font-weight: 700;
@@ -646,6 +716,8 @@
     .mob-nav-item.active.purple-tab::before { background: #a855f7; }
     .mob-nav-item.active.green-tab { color: #22c55e; }
     .mob-nav-item.active.green-tab::before { background: #22c55e; }
+    .mob-nav-item.active.blue-tab { color: #3b82f6; }
+    .mob-nav-item.active.blue-tab::before { background: #3b82f6; }
     .mob-nav-item.active.red-tab { color: var(--orange); }
     .mob-nav-item.active.red-tab::before { background: var(--orange); }
 
@@ -654,14 +726,291 @@
       display: none;
     }
 
+    /* ====== GLOBAL PREMIUM REDESIGN — BID-SECTION STYLE ====== */
+
+    /* --- SECTION backgrounds — dark gradient like bid section --- */
+    .section {
+      background: linear-gradient(135deg, #09090f 0%, #0d0d1a 100%);
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px;
+    }
+    .section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* --- PREMIUM CARD BASE — applies to all cards --- */
+    .package-card,
+    .like-card,
+    .community-card {
+      background: linear-gradient(135deg, #08091f 0%, #0d0f28 100%) !important;
+      border: 1px solid rgba(139,92,246,0.25) !important;
+      border-radius: 16px !important;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+    }
+    /* Glowing top accent line on every card */
+    .package-card::before,
+    .like-card::before,
+    .community-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #3b82f6, transparent);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Hover — blue/purple glow lift */
+    .package-card:hover,
+    .like-card:hover,
+    .community-card:hover {
+      transform: translateY(-6px) !important;
+      border-color: rgba(139,92,246,0.6) !important;
+      box-shadow: 0 12px 48px rgba(139,92,246,0.22), 0 0 0 1px rgba(59,130,246,0.1) !important;
+    }
+
+    /* Popular / Best ribbon borders handled above */
+
+    /* --- STATS BAR premium --- */
+    .stats-bar {
+      background: linear-gradient(135deg, #08091f 0%, #0d0f28 100%) !important;
+      border-top: 1px solid rgba(59,130,246,0.2) !important;
+      border-bottom: 1px solid rgba(59,130,246,0.2) !important;
+      position: relative;
+    }
+    .stats-bar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #3b82f6, transparent);
+    }
+    .stat-item {
+      border-right: 1px solid rgba(59,130,246,0.15) !important;
+    }
+    .stat-num {
+      font-size: 2rem !important;
+      filter: drop-shadow(0 0 12px rgba(59,130,246,0.5));
+    }
+
+    /* --- ALL BUTTONS → bid-style gradient --- */
+    .btn-primary,
+    .btn-pkg {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+      color: #fff !important;
+      border: none !important;
+      border-radius: 10px !important;
+      box-shadow: 0 4px 20px rgba(139,92,246,0.3) !important;
+      transition: all 0.22s !important;
+      font-family: 'Exo 2', sans-serif !important;
+      letter-spacing: 2px !important;
+    }
+    .btn-primary:hover,
+    .btn-pkg:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 32px rgba(139,92,246,0.5) !important;
+      background: linear-gradient(135deg, #60a5fa, #a855f7) !important;
+    }
+    .btn-secondary {
+      background: transparent !important;
+      color: #60a5fa !important;
+      border: 1.5px solid rgba(59,130,246,0.5) !important;
+      border-radius: 10px !important;
+      transition: all 0.22s !important;
+    }
+    .btn-secondary:hover {
+      background: rgba(59,130,246,0.1) !important;
+      border-color: #8b5cf6 !important;
+      box-shadow: 0 0 24px rgba(139,92,246,0.3) !important;
+      transform: translateY(-2px) !important;
+    }
+    .btn-orange {
+      background: linear-gradient(135deg, #ef4444, #f97316) !important;
+      border-radius: 10px !important;
+      box-shadow: 0 4px 20px rgba(239,68,68,0.3) !important;
+    }
+    .btn-orange:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 32px rgba(239,68,68,0.5) !important;
+    }
+
+    /* --- HERO badge & hero --- */
+    .hero {
+      background: linear-gradient(160deg, #06060e 0%, #0a0a1c 60%, #0d0a20 100%) !important;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(139,92,246,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      background: rgba(139,92,246,0.1) !important;
+      border: 1px solid rgba(139,92,246,0.3) !important;
+      color: #a78bfa !important;
+    }
+
+    /* --- SECTION eyebrow line above section header --- */
+    .section-header {
+      position: relative;
+      padding-top: 8px;
+    }
+    .section-header::before {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      border-radius: 100px;
+      margin: 0 auto 18px;
+      box-shadow: 0 0 14px rgba(139,92,246,0.5);
+    }
+
+    /* --- PACKAGE CARD inner elements z-index fix --- */
+    .pkg-title, .pkg-features, .pkg-price-row, .pkg-sold, .btn-pkg,
+    .like-title, .like-stats, .like-price, .hot-badge,
+    .community-icon, .community-name, .community-desc {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* --- STATS BAR stat items z-index --- */
+    .stat-item { position: relative; z-index: 1; }
+
+    /* --- LIKE CARD hot border --- */
+    .like-card.hot-offer {
+      border-color: rgba(239,68,68,0.5) !important;
+    }
+    .like-card.hot-offer::before {
+      background: linear-gradient(90deg, transparent, #ef4444, #f97316, #ef4444, transparent) !important;
+    }
+
+    /* --- COMMUNITY CARD icons glow --- */
+    .community-icon {
+      font-size: 2.2rem !important;
+      filter: drop-shadow(0 0 10px rgba(139,92,246,0.6));
+      margin-bottom: 14px !important;
+    }
+    .community-card:hover .community-icon {
+      filter: drop-shadow(0 0 18px rgba(59,130,246,0.8));
+    }
+
+    /* --- PAYMENT SECTION cards --- */
+    #payments-section > div > div,
+    .section[style*="dark2"] > div > div > div {
+      background: linear-gradient(135deg, #08091f 0%, #0d0f28 100%) !important;
+      border: 1px solid rgba(59,130,246,0.2) !important;
+      border-radius: 16px !important;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background: linear-gradient(135deg, #06060e, #08081a) !important;
+      border-top: 1px solid rgba(59,130,246,0.2) !important;
+      position: relative;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #3b82f6, transparent);
+    }
+
+    /* --- CONTACT BAR --- */
+    .contact-bar {
+      background: linear-gradient(90deg, #1d3a8a 0%, #3b82f6 50%, #7c3aed 100%) !important;
+    }
+    .contact-bar-text { color: #fff !important; }
+    .contact-bar a { color: #fff !important; text-shadow: 0 0 12px rgba(255,255,255,0.5); }
+
+    /* --- MOBILE NAV --- */
+    .mobile-nav {
+      background: rgba(6,6,16,0.98) !important;
+      border-top: 1px solid rgba(139,92,246,0.25) !important;
+    }
+    .mobile-nav::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #3b82f6, transparent);
+    }
+
+    /* --- CART SIDEBAR --- */
+    .cart-sidebar {
+      background: linear-gradient(160deg, #08091f, #0d0f28) !important;
+      border-left: 1px solid rgba(139,92,246,0.3) !important;
+    }
+
+    /* --- UID EXAMPLE ITEMS --- */
+    .uid-example-item {
+      background: linear-gradient(135deg, #08091f, #0d0f28) !important;
+      border: 1px solid rgba(59,130,246,0.2) !important;
+      border-radius: 10px !important;
+      transition: all 0.2s !important;
+    }
+    .uid-example-item:hover, .uid-example-item.in-cart {
+      border-color: rgba(139,92,246,0.6) !important;
+      box-shadow: 0 0 18px rgba(139,92,246,0.2) !important;
+    }
+    .uid-cart-btn {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+      border-radius: 6px !important;
+      border: none !important;
+      color: #fff !important;
+      padding: 6px 12px !important;
+      font-family: 'Exo 2', sans-serif !important;
+      font-size: 0.7rem !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      transition: all 0.2s !important;
+    }
+    .uid-cart-btn:hover {
+      box-shadow: 0 0 14px rgba(139,92,246,0.5) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* Tier buttons */
+    .tier-btn {
+      background: linear-gradient(135deg, #08091f, #0d0f28) !important;
+      border: 1px solid rgba(59,130,246,0.2) !important;
+      border-radius: 10px !important;
+      transition: all 0.2s !important;
+    }
+    .tier-btn.active-t1, .tier-btn.active-t2, .tier-btn.active-t3 {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+      border-color: transparent !important;
+      box-shadow: 0 4px 20px rgba(139,92,246,0.4) !important;
+    }
+
+    /* VIP RESELLER top bar */
+    .vip-reseller-topbar {
+      background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #3b82f6, transparent) !important;
+    }
+
+    /* ====== END GLOBAL REDESIGN ====== */
+
     /* Mobile content area padding when bottom nav is shown */
     @media (max-width: 700px) {
       .mobile-nav { display: none !important; }
       body { padding-bottom: 0; }
       nav ul { display: none !important; }
-      .nav-logo { display: block !important; }
+      .nav-logo { display: none !important; }
       .nav-cta { display: none !important; }
-      .hamburger { display: flex !important; }
+      .hamburger { display: none !important; }
+      .mobile-menu { display: none !important; }
+      .menu-overlay { display: none !important; }
       nav { padding: 12px 16px; justify-content: space-between; }
       .uid-inner { grid-template-columns: 1fr; gap: 32px; }
       .stats-bar { flex-wrap: wrap; }
@@ -761,9 +1110,11 @@
   .menu-overlay.open { display: block; }
 
   @media (max-width: 900px) {
-    .hamburger { display: flex !important; }
+    .hamburger { display: none !important; }
+    .mobile-menu { display: none !important; }
+    .menu-overlay { display: none !important; }
     nav ul { display: none !important; }
-    .nav-logo { display: block !important; }
+    .nav-logo { display: none !important; }
     .nav-cta { display: none !important; }
   }
 </style>
@@ -783,22 +1134,15 @@
     <li><a href="#uid">Rare UID</a></li>
     <li><a href="#vipserver" style="color:#a855f7;">🔥 VIP Server</a></li>
     <li><a href="#levelup" style="color:#3b82f6;">⚡ API STORE</a></li>
-    <li><a href="#vip" style="color:#f5c518;">👑 FFSLK Team</a></li>
+    <li><a href="#bidforid" style="color:#3b82f6;">🔨 Bid For ID</a></li>
   </ul>
 
   <a href="https://wa.me/94741100921" target="_blank" class="nav-cta">ORDER NOW</a>
 </nav>
 
 <!-- MOBILE DROPDOWN -->
-<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#guild" onclick="toggleMenu()">Guild Glory</a>
-  <a href="#likes" onclick="toggleMenu()">Profile Likes</a>
-  <a href="#uid" onclick="toggleMenu()">Rare UID</a>
-  <a href="#vipserver" class="vip-server" onclick="toggleMenu()">VIP Server</a>
-  <a href="#levelup" onclick="toggleMenu()" style="color:#3b82f6;">API STORE</a>
-  <a href="#vip" class="ffslk-team" onclick="toggleMenu()">FFSLK Team</a>
-</div>
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()" style="display:none!important;"></div>
+<div class="mobile-menu" id="mobileMenu" style="display:none!important;"></div>
 
 <script>
   function toggleMenu() {
@@ -815,7 +1159,7 @@
 <section class="hero">
   <div class="hero-badge">
     <span class="dot"></span>
-    🇱🇰 SRI LANKA'S BEST GAMING STORE
+    🇱🇰 SRI LANKA'S BEST FF GAMING STORE
   </div>
   <h1>
     <span class="line1">FF SERVICES</span>
@@ -854,7 +1198,7 @@
 <!-- GUILD GLORY -->
 <section class="section" id="guild">
   <div class="section-header">
-    <span class="section-eyebrow">⚡ Free Fire Boost</span>
+    <span class="section-eyebrow">⚡ FF Boost</span>
     <h2 class="section-title">GUILD GLORY <span>PACKAGES</span></h2>
     <div class="divider"></div>
     <p class="section-desc">Pick your squad size and rise through the guild ranks with our secure, steady bot delivery — built for real results.</p>
@@ -871,7 +1215,7 @@
       </ul>
       <div class="pkg-sold">142 Sold</div>
       <div class="pkg-price-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
-        <div><span class="pkg-price">$1.99</span> <span style="color:#888;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 700</span></div>
+        <div><span class="pkg-price">$1.99</span> <span style="color:#b0b8d4;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 700</span></div>
       </div>
       <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%201%20SQUAD%20Guild%20Glory%20package%20%28LKR%20500%29.%20Please%20assist%20me%21%20%F0%9F%8E%AE" class="btn btn-primary btn-pkg" target="_blank">ORDER NOW</a>
     </div>
@@ -885,7 +1229,7 @@
       </ul>
       <div class="pkg-sold">288 Sold</div>
       <div class="pkg-price-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
-        <div><span class="pkg-price">$3.99</span> <span style="color:#888;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 1,200</span></div>
+        <div><span class="pkg-price">$3.99</span> <span style="color:#b0b8d4;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 1,200</span></div>
       </div>
       <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%202%20SQUADS%20Guild%20Glory%20package%20%28LKR%201%2C000%29.%20Please%20assist%20me%21%20%F0%9F%8E%AE" class="btn btn-primary btn-pkg" target="_blank">ORDER NOW</a>
     </div>
@@ -899,7 +1243,7 @@
       </ul>
       <div class="pkg-sold">466 Sold</div>
       <div class="pkg-price-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
-        <div><span class="pkg-price">$5.99</span> <span style="color:#888;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 1,700</span></div>
+        <div><span class="pkg-price">$5.99</span> <span style="color:#b0b8d4;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 1,700</span></div>
       </div>
       <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%203%20SQUADS%20Guild%20Glory%20package%20%28LKR%201%2C500%29.%20Please%20assist%20me%21%20%F0%9F%8E%AE" class="btn btn-primary btn-pkg" target="_blank">ORDER NOW</a>
     </div>
@@ -913,7 +1257,7 @@
       </ul>
       <div class="pkg-sold">219 Sold</div>
       <div class="pkg-price-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
-        <div><span class="pkg-price">$7.99</span> <span style="color:#888;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 2,200</span></div>
+        <div><span class="pkg-price">$7.99</span> <span style="color:#b0b8d4;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 2,200</span></div>
       </div>
       <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%204%20SQUADS%20Guild%20Glory%20package%20%28LKR%202%2C000%29.%20Please%20assist%20me%21%20%F0%9F%8E%AE" class="btn btn-primary btn-pkg" target="_blank">ORDER NOW</a>
     </div>
@@ -927,7 +1271,7 @@
       </ul>
       <div class="pkg-sold">173 Sold</div>
       <div class="pkg-price-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
-        <div><span class="pkg-price">$9.99</span> <span style="color:#888;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 2,700</span></div>
+        <div><span class="pkg-price">$9.99</span> <span style="color:#b0b8d4;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 2,700</span></div>
       </div>
       <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%205%20SQUADS%20Guild%20Glory%20package%20%28LKR%202%2C500%29.%20Please%20assist%20me%21%20%F0%9F%8E%AE" class="btn btn-primary btn-pkg" target="_blank">ORDER NOW</a>
     </div>
@@ -942,7 +1286,7 @@
       <div class="pkg-sold">351 Sold</div>
       <div class="pkg-price-row" style="flex-direction:column;gap:4px;align-items:flex-start;">
         <div><span class="pkg-price-old">LKR 3,200</span></div>
-        <div><span class="pkg-currency">LKR</span> <span class="pkg-price" style="color:var(--orange);">$11.00</span> <span style="color:#888;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 2,950</span></div>
+        <div><span class="pkg-currency">LKR</span> <span class="pkg-price" style="color:var(--orange);">$11.00</span> <span style="color:#b0b8d4;font-size:0.8rem;font-family:'Rajdhani',sans-serif;">/ LKR 2,950</span></div>
       </div>
       <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%206%20SQUADS%20Guild%20Glory%20package%20%28LKR%202%2C750%29.%20Please%20assist%20me%21%20%F0%9F%8E%AE" class="btn btn-orange btn-pkg" target="_blank">ORDER NOW</a>
     </div>
@@ -995,7 +1339,7 @@
           <div class="like-stat-label">Daily Likes</div>
         </div>
       </div>
-      <div class="like-price"><span style="font-size:1.8rem;font-family:'Arial Black',sans-serif;font-weight:900;">$4.99</span> <span style="font-size:0.85rem;color:#888;font-family:'Rajdhani',sans-serif;">/ LKR 1,450</span></div>
+      <div class="like-price"><span style="font-size:1.8rem;font-family:'Arial Black',sans-serif;font-weight:900;">$4.99</span> <span style="font-size:0.85rem;color:#b0b8d4;font-family:'Rajdhani',sans-serif;">/ LKR 1,450</span></div>
       <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%2030%20Days%20Profile%20Likes%20package%20%28LKR%202%2C000%29.%20Please%20assist%20me%21%20%E2%9D%A4%EF%B8%8F" class="btn btn-orange btn-pkg" target="_blank">BUY NOW</a>
     </div>
 
@@ -1027,7 +1371,7 @@
     <span class="section-eyebrow" style="color:#a855f7;">🔥 Exclusive Access</span>
     <h2 class="section-title" style="font-family:'Arial Black',Arial,sans-serif;-webkit-text-stroke:1px #a855f7;">ASTUTE <span style="color:#a855f7;">VIP PROXY SERVER</span></h2>
     <div class="divider" style="background:linear-gradient(90deg,#a855f7,#7c3aed);"></div>
-    <p class="section-desc">A private Free Fire proxy server loaded with everything — unlimited diamonds, gold, all gun skins, costumes and emotes that appear in the real FF server!</p>
+    <p class="section-desc">A private FF proxy server loaded with everything — unlimited diamonds, gold, all gun skins, costumes and emotes that appear in the real FF server!</p>
   </div>
 
   <style>
@@ -1073,11 +1417,11 @@
 
   <!-- FEATURES -->
   <div class="proxy-features-grid">
-    <div class="proxy-feature"><div class="proxy-feature-icon">💎</div><div class="proxy-feature-text">INFINITE DIAMONDS</div><div style="font-size:0.68rem;color:#888;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Unlimited diamonds to unlock anything in the game — no top-up needed ever.</div></div>
-    <div class="proxy-feature"><div class="proxy-feature-icon">🥇</div><div class="proxy-feature-text">UNLIMITED GOLD</div><div style="font-size:0.68rem;color:#888;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Max gold balance at all times — buy any item from the gold shop instantly.</div></div>
-    <div class="proxy-feature"><div class="proxy-feature-icon">🔫</div><div class="proxy-feature-text">ALL GUN SKINS</div><div style="font-size:0.68rem;color:#888;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Every single gun skin unlocked — rare, legendary and exclusive skins included.</div></div>
-    <div class="proxy-feature"><div class="proxy-feature-icon">👗</div><div class="proxy-feature-text">ALL COSTUMES</div><div style="font-size:0.68rem;color:#888;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Full wardrobe access — all outfits, bundles and character skins available to wear.</div></div>
-    <div class="proxy-feature"><div class="proxy-feature-icon">🕺</div><div class="proxy-feature-text">ALL EMOTES</div><div style="font-size:0.68rem;color:#888;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Every emote unlocked — and real Free Fire server players can also see your emotes when you perform them!</div></div>
+    <div class="proxy-feature"><div class="proxy-feature-icon">💎</div><div class="proxy-feature-text">INFINITE DIAMONDS</div><div style="font-size:0.68rem;color:#b0b8d4;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Unlimited diamonds to unlock anything in the game — no top-up needed ever.</div></div>
+    <div class="proxy-feature"><div class="proxy-feature-icon">🥇</div><div class="proxy-feature-text">UNLIMITED GOLD</div><div style="font-size:0.68rem;color:#b0b8d4;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Max gold balance at all times — buy any item from the gold shop instantly.</div></div>
+    <div class="proxy-feature"><div class="proxy-feature-icon">🔫</div><div class="proxy-feature-text">ALL GUN SKINS</div><div style="font-size:0.68rem;color:#b0b8d4;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Every single gun skin unlocked — rare, legendary and exclusive skins included.</div></div>
+    <div class="proxy-feature"><div class="proxy-feature-icon">👗</div><div class="proxy-feature-text">ALL COSTUMES</div><div style="font-size:0.68rem;color:#b0b8d4;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Full wardrobe access — all outfits, bundles and character skins available to wear.</div></div>
+    <div class="proxy-feature"><div class="proxy-feature-icon">🕺</div><div class="proxy-feature-text">ALL EMOTES</div><div style="font-size:0.68rem;color:#b0b8d4;margin-top:6px;font-family:sans-serif;font-weight:400;line-height:1.4;">Every emote unlocked — and real FF server players can also see your emotes when you perform them!</div></div>
   </div>
 
   <!-- PLANS -->
@@ -1087,7 +1431,7 @@
       <div class="proxy-days">1</div>
       <div class="proxy-days-label">DAY ACCESS</div>
       <div class="proxy-price">$1.00</div>
-      <div class="proxy-currency">USD <span style="color:#888;font-size:0.75rem;font-weight:400;">/ LKR 300</span></div>
+      <div class="proxy-currency">USD <span style="color:#b0b8d4;font-size:0.75rem;font-weight:400;">/ LKR 300</span></div>
       <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%20ASTUTE%20VIP%20Proxy%20Server%20-%201%20Day%20access%20%28LKR%20300%29.%20Please%20assist%20me%21%20%F0%9F%94%A5" target="_blank" class="proxy-btn">ORDER NOW</a>
     </div>
 
@@ -1095,7 +1439,7 @@
       <div class="proxy-days">7</div>
       <div class="proxy-days-label">DAYS ACCESS</div>
       <div class="proxy-price">$5.00</div>
-      <div class="proxy-currency">USD <span style="color:#888;font-size:0.75rem;font-weight:400;">/ LKR 1,500</span></div>
+      <div class="proxy-currency">USD <span style="color:#b0b8d4;font-size:0.75rem;font-weight:400;">/ LKR 1,500</span></div>
       <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%20ASTUTE%20VIP%20Proxy%20Server%20-%207%20Days%20access%20%28LKR%201%2C500%29.%20Please%20assist%20me%21%20%F0%9F%94%A5" target="_blank" class="proxy-btn">ORDER NOW</a>
     </div>
 
@@ -1103,7 +1447,7 @@
       <div class="proxy-days">30</div>
       <div class="proxy-days-label">DAYS ACCESS</div>
       <div class="proxy-price">$20.00</div>
-      <div class="proxy-currency">USD <span style="color:#888;font-size:0.75rem;font-weight:400;">/ LKR 6,000</span></div>
+      <div class="proxy-currency">USD <span style="color:#b0b8d4;font-size:0.75rem;font-weight:400;">/ LKR 6,000</span></div>
       <a href="https://wa.me/94741100921?text=Hi%21%20I%20wanna%20purchase%20the%20ASTUTE%20VIP%20Proxy%20Server%20-%2030%20Days%20access%20%28LKR%206%2C000%29.%20Please%20assist%20me%21%20%F0%9F%94%A5" target="_blank" class="proxy-btn">ORDER NOW</a>
     </div>
 
@@ -1115,10 +1459,10 @@
 <!-- API PACKAGES -->
 <section class="section" id="levelup" style="background:linear-gradient(135deg,#06060f,#0a0a1a);">
   <div class="section-header">
-    <span class="section-eyebrow" style="color:#3b82f6;">🚀 Free Fire API</span>
+    <span class="section-eyebrow" style="color:#3b82f6;">🚀 FF API</span>
     <h2 class="section-title">API <span style="color:#3b82f6;"> KEYS</span></h2>
     <div class="divider" style="background:linear-gradient(90deg,#3b82f6,#60a5fa);"></div>
-    <p class="section-desc">Power your tools with real Free Fire data. Purchase API keys and integrate instantly.</p>
+    <p class="section-desc">Power your tools with real FF data. Purchase API keys and integrate instantly.</p>
     <button onclick="toggleAPIPackages()" id="apiToggleBtn" style="margin-top:24px;background:linear-gradient(135deg,#3b82f6,#60a5fa);color:#fff;font-family:'Arial Black',Arial,sans-serif;font-size:0.85rem;font-weight:900;letter-spacing:2px;padding:14px 36px;border:none;border-radius:6px;cursor:pointer;box-shadow:0 0 24px rgba(59,130,246,0.4);transition:all 0.2s;">🚀 VIEW API PACKAGES ▼</button>
   </div>
 
@@ -1227,7 +1571,7 @@
     const btn = document.getElementById("apiToggleBtn");
     const isHidden = grid.style.display === "none";
     grid.style.display = isHidden ? "block" : "none";
-    btn.textContent = isHidden ? "✖ HIDE API PACKAGES ▲" : "🚀 VIEW API PACKAGES ▼";
+    btn.textContent = isHidden ? "HIDE API PACKAGES ▲" : "🚀 VIEW API PACKAGES ▼";
     btn.style.background = isHidden ? "linear-gradient(135deg,#ef4444,#dc2626)" : "linear-gradient(135deg,#3b82f6,#60a5fa)";
     if (isHidden) {
       setTimeout(function() { document.getElementById("levelup").scrollIntoView({ behavior: "smooth", block: "start" }); }, 50);
@@ -1241,8 +1585,8 @@
     <div style="border:2px solid #f5c518;background:linear-gradient(135deg,#0f0f1c,#12121e);border-radius:12px;padding:36px 32px;position:relative;overflow:hidden;">
       <div style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(245,197,24,0.03) 0px,transparent 2px,transparent 40px);pointer-events:none;"></div>
       <div style="position:absolute;inset:0;box-shadow:inset 0 0 60px rgba(245,197,24,0.18);pointer-events:none;border-radius:12px;"></div>
-      <!-- Gold shimmer top bar -->
-      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#f5c518,#ffaa00,#f5c518,transparent);border-radius:12px 12px 0 0;pointer-events:none;"></div>
+      <!-- Bid-style shimmer top bar -->
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#3b82f6,#8b5cf6,#3b82f6,transparent);border-radius:12px 12px 0 0;pointer-events:none;"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;position:relative;z-index:1;">
         <div style="flex:1;min-width:200px;">
           <div style="display:inline-block;background:linear-gradient(90deg,#f5c518,#ffaa00);color:#000;font-family:'Arial Black',Arial,sans-serif;font-size:0.6rem;font-weight:900;letter-spacing:2px;padding:3px 12px;border-radius:100px;margin-bottom:10px;">⭐ MOST POPULAR</div>
@@ -1266,125 +1610,288 @@
 </section>
 
 
-<!-- FFSLK TEAM -->
-<section class="section" id="vip" style="background:linear-gradient(135deg,#09090f,#0d0d1a);">
+<!-- BID FOR ID -->
+<section class="section" id="bidforid" style="background:linear-gradient(135deg,#09090f,#0d0d1a);">
   <div class="section-header">
-    <span class="section-eyebrow" style="color:#22c55e;">⭐ Exclusive</span>
-    <h2 class="section-title" style="-webkit-text-stroke:1px #22c55e;color:#fff;">FFSLK <span style="color:#22c55e;">TEAM</span></h2>
-    <div class="divider" style="background:linear-gradient(90deg,#22c55e,#16a34a);"></div>
-    <p class="section-desc">Enter your exclusive FFSLK TEAM code to unlock special offers.</p>
+    <span class="section-eyebrow" style="background:linear-gradient(90deg,#60a5fa,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:0.82rem;letter-spacing:5px;">ONGOING BID</span>
+    <h2 class="section-title">BID FOR <span>ID</span></h2>
+    <div class="divider" style="background:linear-gradient(90deg,#3b82f6,#8b5cf6);"></div>
+    <p class="section-desc">Highest bidder wins this exclusive UID. Place your offer and we'll confirm via WhatsApp.</p>
   </div>
 
-  <!-- CODE GATE -->
-  <div id="vip-gate" style="max-width:460px;margin:0 auto;text-align:center;">
-    <div style="border:2px solid rgba(245,197,24,0.3);border-radius:12px;padding:36px 28px;background:rgba(245,197,24,0.04);">
-      <div style="font-size:2.5rem;margin-bottom:12px;">🔐</div>
-      <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1rem;color:#f5c518;letter-spacing:3px;margin-bottom:8px;">ENTER FFSLK TEAM CODE</div>
-      <div style="font-size:0.8rem;color:#888;margin-bottom:24px;">Your exclusive code unlocks FFSLK TEAM special offers</div>
-      <input id="vip-code-input" type="text" placeholder="Enter code here..." style="width:100%;background:#0f0d00;border:2px solid rgba(245,197,24,0.3);border-radius:6px;padding:13px 18px;color:#fff;font-family:'Arial Black',Arial,sans-serif;font-size:0.9rem;letter-spacing:3px;text-align:center;outline:none;margin-bottom:14px;text-transform:uppercase;" oninput="this.value=this.value.toUpperCase()"/>
-      <div id="vip-code-error" style="color:#ef4444;font-size:0.75rem;font-weight:700;letter-spacing:1px;margin-bottom:10px;display:none;">❌ INVALID CODE — TRY AGAIN</div>
-      <button onclick="checkVIPCode()" style="width:100%;background:#22c55e;color:#001a08;font-family:'Arial Black',Arial,sans-serif;font-size:0.88rem;font-weight:900;letter-spacing:2px;padding:13px;border:none;border-radius:6px;cursor:pointer;box-shadow:0 0 20px rgba(34,197,94,0.4);transition:all 0.2s;">UNLOCK ➤</button>
-    </div>
-  </div>
+  <style>
+    .bid-wrap {
+      max-width: 520px;
+      margin: 0 auto;
+    }
 
+    /* UID SHOWCASE CARD */
+    .bid-uid-card {
+      position: relative;
+      background: linear-gradient(135deg, #08091f 0%, #0d0f28 100%);
+      border: 1px solid rgba(139,92,246,0.35);
+      border-radius: 16px;
+      padding: 32px 24px 28px;
+      text-align: center;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .bid-uid-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #3b82f6, transparent);
+    }
+    .bid-uid-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .bid-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(46,204,64,0.08);
+      border: 1px solid rgba(46,204,64,0.3);
+      border-radius: 100px;
+      padding: 5px 14px;
+      margin-bottom: 18px;
+    }
+    .bid-live-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #2ecc40;
+      box-shadow: 0 0 8px #2ecc40;
+      animation: pulse 1.4s infinite;
+    }
+    .bid-live-text {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #2ecc40;
+      text-transform: uppercase;
+    }
+    .bid-uid-number {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(1.6rem, 6vw, 2.4rem);
+      font-weight: 900;
+      letter-spacing: 4px;
+      background: linear-gradient(135deg, #93c5fd, #60a5fa, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+    .bid-uid-label {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #b0b8d4;
+      margin-bottom: 22px;
+    }
+    .bid-stats-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    .bid-stat-box {
+      flex: 1;
+      background: rgba(59,130,246,0.06);
+      border: 1px solid rgba(59,130,246,0.18);
+      border-radius: 10px;
+      padding: 12px 8px;
+    }
+    .bid-stat-label {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #b0b8d4;
+      margin-bottom: 4px;
+    }
+    .bid-stat-value {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #60a5fa, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-  <!-- SPECIAL OFFERS -->
-  <div id="vip-special" style="display:none;max-width:860px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:36px;">
-      <div style="font-size:2.5rem;margin-bottom:10px;">👑</div>
-      <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1.6rem;color:#f5c518;letter-spacing:3px;text-shadow:0 0 20px rgba(245,197,24,0.5);">WELCOME TO FFSLK TEAM!</div>
-      <div style="font-size:0.85rem;color:#888;margin-top:8px;">Join our exclusive community and unlock reseller benefits.</div>
-    </div>
+    /* FORM CARD */
+    .bid-form-card {
+      background: linear-gradient(135deg, #08091f 0%, #0a0b1e 100%);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 16px;
+      padding: 28px 24px;
+    }
+    .bid-field {
+      margin-bottom: 14px;
+    }
+    .bid-label {
+      display: block;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #b0b8d4;
+      margin-bottom: 7px;
+    }
+    .bid-input {
+      width: 100%;
+      background: rgba(9,10,25,0.8);
+      border: 1.5px solid rgba(59,130,246,0.2);
+      border-radius: 8px;
+      padding: 13px 16px;
+      color: #e8e8f0;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .bid-input:focus {
+      border-color: rgba(139,92,246,0.6);
+      box-shadow: 0 0 0 3px rgba(139,92,246,0.08);
+    }
+    .bid-input::placeholder { color: #6a7399; }
+    .bid-error-msg {
+      display: none;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #ef4444;
+      margin-bottom: 12px;
+      padding: 10px 14px;
+      background: rgba(239,68,68,0.07);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: 6px;
+    }
+    .bid-submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: #fff;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(139,92,246,0.35);
+      transition: all 0.22s;
+      margin-top: 4px;
+    }
+    .bid-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(139,92,246,0.5);
+    }
+    .bid-footer-note {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #b0b8d4;
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.6;
+    }
+  </style>
 
-    <!-- COMMUNITY CARDS -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:16px;margin-bottom:32px;">
+  <div class="bid-wrap">
 
-      <!-- WHATSAPP GROUP -->
-      <div style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:2px solid #25d366;border-radius:12px;padding:28px 22px;text-align:center;box-shadow:0 0 24px rgba(37,211,102,0.15);">
-        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1.25rem;color:#25d366;letter-spacing:2px;margin-bottom:8px;font-weight:900;">WHATSAPP GROUP</div>
-        <div style="font-size:0.78rem;color:#888;line-height:1.6;margin-bottom:18px;">Join the official FFSLK TEAM WhatsApp group for exclusive deals, updates and reseller offers.</div>
-        <a href="https://chat.whatsapp.com/HVshzFRwTIy80ZppbnxDVZ" target="_blank" style="display:block;background:#25d366;color:#000;font-family:'Arial Black',Arial,sans-serif;font-size:0.8rem;font-weight:900;letter-spacing:2px;padding:13px;border-radius:6px;text-decoration:none;box-shadow:0 0 16px rgba(37,211,102,0.4);">JOIN NOW ➤</a>
+    <!-- UID SHOWCASE -->
+    <div class="bid-uid-card">
+      <div class="bid-live-badge">
+        <span class="bid-live-dot"></span>
+        <span class="bid-live-text">Live Now</span>
       </div>
-
-      <!-- TELEGRAM GROUP -->
-      <div style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:2px solid rgba(0,136,204,0.5);border-radius:12px;padding:28px 22px;text-align:center;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:10px;right:10px;background:rgba(0,136,204,0.12);border:1px solid rgba(0,136,204,0.4);border-radius:100px;padding:3px 10px;font-family:'Arial Black',Arial,sans-serif;font-size:0.55rem;color:#0088cc;letter-spacing:2px;">🔜 COMING SOON</div>
-        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1.25rem;color:#0088cc;letter-spacing:2px;margin-bottom:8px;font-weight:900;">TELEGRAM GROUP</div>
-        <div style="font-size:0.78rem;color:#888;line-height:1.6;margin-bottom:18px;">Our Telegram group is launching soon — stay tuned for exclusive updates and flash deals.</div>
-        <div style="display:inline-block;background:rgba(0,136,204,0.1);border:2px dashed rgba(0,136,204,0.4);border-radius:8px;padding:12px 20px;font-family:'Arial Black',Arial,sans-serif;font-size:0.72rem;color:#0088cc;letter-spacing:2px;">⏳ LAUNCHING SOON</div>
+      <div class="bid-uid-number">16161616160</div>
+      <div class="bid-uid-label">Exclusive Rare UID — Up For Bidding</div>
+      <div class="bid-stats-row">
+        <div class="bid-stat-box">
+          <div class="bid-stat-label">Highest Bid</div>
+          <div class="bid-stat-value" id="bid-current-highest">$0.00</div>
+        </div>
+        <div class="bid-stat-box">
+          <div class="bid-stat-label">Digits</div>
+          <div class="bid-stat-value">11</div>
+        </div>
+        <div class="bid-stat-box">
+          <div class="bid-stat-label">Tier</div>
+          <div class="bid-stat-value">VIP</div>
+        </div>
       </div>
+    </div>
 
-      <!-- DISCORD COMING SOON -->
-      <div style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:2px solid rgba(88,101,242,0.4);border-radius:12px;padding:28px 22px;text-align:center;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:10px;right:10px;background:rgba(88,101,242,0.15);border:1px solid rgba(88,101,242,0.4);border-radius:100px;padding:3px 10px;font-family:'Arial Black',Arial,sans-serif;font-size:0.55rem;color:#5865f2;letter-spacing:2px;">🔜 COMING SOON</div>
-        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1.25rem;color:#5865f2;letter-spacing:2px;margin-bottom:8px;font-weight:900;">DISCORD SERVER</div>
-        <div style="font-size:0.78rem;color:#888;line-height:1.6;margin-bottom:18px;">Our Discord server is launching soon — tournaments, giveaways and reseller chat await.</div>
-        <div style="display:inline-block;background:rgba(88,101,242,0.12);border:2px dashed rgba(88,101,242,0.5);border-radius:8px;padding:12px 20px;font-family:'Arial Black',Arial,sans-serif;font-size:0.72rem;color:#5865f2;letter-spacing:2px;">⏳ LAUNCHING SOON</div>
+    <!-- FORM -->
+    <div class="bid-form-card">
+      <div class="bid-field">
+        <label class="bid-label">Your Name</label>
+        <input id="bid-name" type="text" placeholder="Enter your name" class="bid-input"/>
       </div>
-
+      <div class="bid-field">
+        <label class="bid-label">Bid Amount (USD)</label>
+        <input id="bid-amount" type="number" min="1" step="0.01" placeholder="e.g. 30.00" class="bid-input"/>
+      </div>
+      <div class="bid-field" style="margin-bottom:20px;">
+        <label class="bid-label">Message for Seller <span (Optional)</span>>(Optional)</span></label>
+        <input id="bid-note" type="text" placeholder="e.g. I can pay instantly via bank transfer" class="bid-input"/>
+      </div>
+      <div id="bid-error" class="bid-error-msg">Please fill in your name and bid amount</div>
+      <button onclick="submitBid()" class="bid-submit-btn">💬 Submit Bid via WhatsApp</button>
+      <p class="bid-footer-note">Tapping submit opens WhatsApp with your bid pre-filled — sent directly to our team.</p>
     </div>
 
-    <!-- RESELLER OFFERS -->
-    <div style="font-family:'Arial Black',Arial,sans-serif;font-size:0.8rem;color:#f5c518;letter-spacing:3px;text-align:center;margin-bottom:16px;">⚡ RESELLER OFFERS</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:14px;margin-bottom:28px;">
-      <a href="https://wa.me/94741100921?text=Hi%21%20I%20have%20the%20FFSLK%20Team%20code%20and%20I%20wanna%20discuss%20Glory%20Bot%20reseller%20packages%20%F0%9F%91%91" target="_blank" style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center;text-decoration:none;transition:all 0.2s;display:block;">
-        <div style="font-size:1.6rem;margin-bottom:8px;">⚡</div>
-        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:0.78rem;color:#f5c518;letter-spacing:1px;margin-bottom:6px;">GLORY BOT</div>
-        <div style="font-size:0.7rem;color:#888;">Bulk reseller rates</div>
-      </a>
-      <a href="https://wa.me/94741100921?text=Hi%21%20I%20have%20the%20FFSLK%20Team%20code%20and%20I%20wanna%20discuss%20Likes%20reseller%20packages%20%F0%9F%91%91" target="_blank" style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center;text-decoration:none;transition:all 0.2s;display:block;">
-        <div style="font-size:1.6rem;margin-bottom:8px;">❤️</div>
-        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:0.78rem;color:#f5c518;letter-spacing:1px;margin-bottom:6px;">PROFILE LIKES</div>
-        <div style="font-size:0.7rem;color:#888;">Priority delivery</div>
-      </a>
-      <a href="https://wa.me/94741100921?text=Hi%21%20I%20have%20the%20FFSLK%20Team%20code%20and%20I%20wanna%20discuss%20Proxy%20Server%20reseller%20packages%20%F0%9F%91%91" target="_blank" style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center;text-decoration:none;transition:all 0.2s;display:block;">
-        <div style="font-size:1.6rem;margin-bottom:8px;">🔮</div>
-        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:0.78rem;color:#f5c518;letter-spacing:1px;margin-bottom:6px;">PROXY SERVER</div>
-        <div style="font-size:0.7rem;color:#888;">Special pricing</div>
-      </a>
-      <a href="https://wa.me/94741100921?text=Hi%21%20I%20have%20the%20FFSLK%20Team%20code%20and%20I%20wanna%20discuss%20a%20custom%20reseller%20package%20%F0%9F%91%91" target="_blank" style="background:linear-gradient(135deg,#0f0f1c,#12121e);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center;text-decoration:none;transition:all 0.2s;display:block;">
-        <div style="font-size:1.6rem;margin-bottom:8px;">💬</div>
-        <div style="font-family:'Arial Black',Arial,sans-serif;font-size:0.78rem;color:#f5c518;letter-spacing:1px;margin-bottom:6px;">CUSTOM DEAL</div>
-        <div style="font-size:0.7rem;color:#888;">Message us</div>
-      </a>
-    </div>
-
-    <div style="text-align:center;">
-      <button onclick="lockVIP()" style="background:transparent;color:#888;font-family:'Arial Black',Arial,sans-serif;font-size:0.7rem;letter-spacing:2px;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:8px 18px;cursor:pointer;">🔒 LOCK & EXIT</button>
-    </div>
   </div>
 
 </section>
+
 
 <section class="section uid-section" id="uid">
   <div class="section-header">
     <h2 class="uid-title" style="font-family:'Arial Black',Arial,sans-serif;font-size:clamp(1.6rem,4vw,2.8rem);font-weight:900;-webkit-text-stroke:1px currentColor;color:var(--text);">CUSTOMIZED <span style="color:var(--gold);">UIDS</span></h2>
     <div class="divider"></div>
-    <p class="uid-desc" style="max-width:520px;margin:14px auto 0;text-align:center;">Grab a unique Free Fire UID that stands out from the crowd. Stock is strictly limited — once it's gone, it's gone for good.</p>
+    <p class="uid-desc" style="max-width:520px;margin:14px auto 0;text-align:center;">Grab a unique FF UID that stands out from the crowd. Stock is strictly limited — once it's gone, it's gone for good.</p>
   </div>
 
   <style>
     .uid-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px,100%), 1fr)); gap: 10px; margin-bottom: 28px; }
-    .uid-example-item { background: var(--dark2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 0.92rem; color: #ffffff; display: flex; align-items: center; justify-content: space-between; transition: all 0.2s; gap: 10px; }
-    .uid-example-item:hover { border-color: var(--gold); background: rgba(59,130,246,0.06); transform: translateX(3px); }
+    .uid-example-item { background: linear-gradient(135deg,#08091a,#0a0d1f); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; font-family: 'Share Tech Mono', monospace; font-size: 0.92rem; display: flex; align-items: center; justify-content: space-between; transition: all 0.2s; gap: 10px; }
+    .uid-example-item span:first-child { background: linear-gradient(90deg,#60a5fa,#93c5fd,#3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .uid-example-item:hover { border-color: rgba(96,165,250,0.5); background: linear-gradient(135deg,#0a0c20,#0c1025); transform: translateX(3px); }
     .uid-example-item.in-cart { border-color: #2ecc40; background: rgba(46,204,64,0.05); }
-    .uid-cart-btn { font-family: 'Arial Black', Arial, sans-serif; font-size: 0.6rem; font-weight: 900; letter-spacing: 1px; padding: 5px 10px; border-radius: 4px; border: none; cursor: pointer; white-space: nowrap; transition: all 0.2s; background: var(--gold); color: var(--dark); flex-shrink: 0; }
-    .uid-example-item.in-cart .uid-cart-btn { background: #ef4444; color: #fff; }
+    .uid-cart-btn { font-family: 'Exo 2', sans-serif; font-size: 0.68rem; font-weight: 900; letter-spacing: 1px; padding: 8px 14px; border-radius: 5px; border: none; cursor: pointer; white-space: nowrap; transition: all 0.2s; background: linear-gradient(135deg,#22c55e,#16a34a); color: #fff; flex-shrink: 0; box-shadow: 0 0 12px rgba(34,197,94,0.4); }
+    .uid-cart-btn:hover { box-shadow: 0 0 18px rgba(34,197,94,0.7); transform: scale(1.05); }
+    .uid-example-item.in-cart .uid-cart-btn { background: linear-gradient(135deg,#ef4444,#dc2626); box-shadow: 0 0 12px rgba(239,68,68,0.5); }
+    .uid-example-item.in-cart .uid-cart-btn:hover { box-shadow: 0 0 18px rgba(239,68,68,0.7); }
     .uid-sold { opacity: 0.45; pointer-events: none; }
-    .uid-soldout-tag { font-family: 'Rajdhani', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; color: var(--orange); text-transform: uppercase; flex-shrink: 0; }
+    .uid-soldout-tag { font-family: 'Exo 2', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; color: var(--orange); text-transform: uppercase; flex-shrink: 0; }
     .tier-tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 32px; flex-wrap: nowrap; width: 100%; max-width: 960px; margin-left: auto; margin-right: auto; }
-    .tier-btn { font-family: 'Arial Black', Arial, sans-serif; font-size: 0.82rem; font-weight: 900; padding: 12px 0; border-radius: 6px; border: 2px solid var(--border); background: var(--card); color: var(--muted); cursor: pointer; transition: all 0.2s; letter-spacing: 1px; flex: 1; text-align: center; min-width: 0; }
+    .tier-btn { font-family: 'Exo 2', sans-serif; font-size: 0.85rem; font-weight: 800; padding: 12px 0; border-radius: 6px; border: 2px solid var(--border); background: var(--card); color: var(--muted); cursor: pointer; transition: all 0.2s; letter-spacing: 2px; text-transform: uppercase; flex: 1; text-align: center; min-width: 0; }
     .tier-btn:hover { border-color: var(--gold); color: var(--gold); }
-    .tier-btn.active-t1 { background: var(--gold); color: var(--dark); border-color: var(--gold); box-shadow: var(--glow); }
-    .tier-btn.active-t2 { background: var(--orange); color: #fff; border-color: var(--orange); box-shadow: var(--glow-orange); }
-    .tier-btn.active-t3 { background: linear-gradient(135deg,#f5c518,#ffaa00); color: #000; border-color: #f5c518; box-shadow: 0 0 24px rgba(245,197,24,0.6); text-shadow: none; }
+    .tier-btn.active-t1 { background: linear-gradient(135deg,#3b82f6,#60a5fa); color: #fff; border-color: #3b82f6; box-shadow: 0 0 20px rgba(59,130,246,0.4); }
+    .tier-btn.active-t2 { background: linear-gradient(135deg,#ef4444,#f97316); color: #fff; border-color: #ef4444; box-shadow: 0 0 20px rgba(239,68,68,0.4); }
+    .tier-btn.active-t3 { background: linear-gradient(135deg,#f5c518,#ffaa00); color: #000; border-color: #f5c518; box-shadow: 0 0 24px rgba(245,197,24,0.6); }
     .tier-btn:nth-child(3) { color: #f5c518; border-color: rgba(245,197,24,0.4); }
     .tier-btn:nth-child(3):not(.active-t3):hover { border-color: #f5c518; color: #f5c518; background: rgba(245,197,24,0.08); }
     .tier-panel { display: none; }
     .tier-panel.active { display: block; }
 
     /* FLOATING CART BUTTON */
-    .cart-float { position: fixed; bottom: 28px; right: 28px; z-index: 300; background: var(--gold); color: var(--dark); border: none; border-radius: 50px; padding: 13px 22px; font-family: 'Arial Black', Arial, sans-serif; font-size: 0.78rem; font-weight: 900; letter-spacing: 2px; cursor: pointer; box-shadow: 0 4px 24px rgba(59,130,246,0.5); display: none; align-items: center; gap: 8px; transition: all 0.2s; }
+    .cart-float { position: fixed; bottom: 28px; right: 28px; z-index: 300; background: linear-gradient(135deg,#3b82f6,#8b5cf6); color: #fff; border: none; border-radius: 50px; padding: 13px 22px; font-family: 'Exo 2', sans-serif; font-size: 0.78rem; font-weight: 900; letter-spacing: 2px; cursor: pointer; box-shadow: 0 4px 24px rgba(59,130,246,0.5); display: none; align-items: center; gap: 8px; transition: all 0.2s; }
     .cart-float:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(59,130,246,0.7); }
     .cart-count { background: #ef4444; color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
 
@@ -1553,7 +2060,7 @@
     <span class="section-eyebrow">💎 Why Us</span>
     <h2 class="section-title">WHY CHOOSE <span>FFSLK STORE</span></h2>
     <div class="divider"></div>
-    <p class="section-desc">Trusted by thousands of Free Fire players across Sri Lanka.</p>
+    <p class="section-desc">Trusted by thousands of FF players across Sri Lanka.</p>
   </div>
   <div class="community-grid">
     <div class="community-card">
@@ -1593,290 +2100,4 @@
 <section class="section" style="padding:50px 24px;background:var(--dark2);border-top:1px solid var(--border);">
   <div class="section-header" style="margin-bottom:36px;">
     <span class="section-eyebrow">💳 Payments</span>
-    <h2 class="section-title" style="font-family:'Arial Black',Arial,sans-serif;-webkit-text-stroke:1px currentColor;">ACCEPTED <span style="color:var(--gold);">PAYMENTS</span></h2>
-    <div class="divider"></div>
-    <p class="section-desc">We accept multiple payment methods for your convenience.</p>
-  </div>
-  <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto;">
-
-    <!-- BANK TRANSFER -->
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 32px;text-align:center;flex:1;min-width:200px;transition:all 0.2s;" onmouseover="this.style.borderColor='#3b82f6'" onmouseout="this.style.borderColor='rgba(59,130,246,0.2)'">
-      <div style="font-size:2.5rem;margin-bottom:12px;">🏦</div>
-      <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1rem;font-weight:900;color:#fff;letter-spacing:2px;margin-bottom:8px;">BANK TRANSFER</div>
-      <div style="font-size:0.78rem;color:#888;line-height:1.6;">Local Sri Lanka bank transfers accepted.<br>Contact us for bank details.</div>
-      <div style="margin-top:14px;display:inline-block;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:100px;padding:4px 14px;font-size:0.65rem;font-weight:700;color:#3b82f6;letter-spacing:2px;">LKR ONLY</div>
-    </div>
-
-    <!-- BINANCE -->
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 32px;text-align:center;flex:1;min-width:200px;transition:all 0.2s;" onmouseover="this.style.borderColor='#f0b90b'" onmouseout="this.style.borderColor='rgba(59,130,246,0.2)'">
-      <div style="font-size:2.5rem;margin-bottom:12px;">🔶</div>
-      <div style="font-family:'Arial Black',Arial,sans-serif;font-size:1rem;font-weight:900;color:#f0b90b;letter-spacing:2px;margin-bottom:8px;">BINANCE PAY</div>
-      <div style="font-size:0.78rem;color:#888;line-height:1.6;">Pay securely via Binance Pay.<br>Fast & instant crypto payments.</div>
-      <div style="margin-top:14px;display:inline-block;background:rgba(240,185,11,0.1);border:1px solid rgba(240,185,11,0.3);border-radius:100px;padding:4px 14px;font-size:0.65rem;font-weight:700;color:#f0b90b;letter-spacing:2px;">USD / CRYPTO</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CONTACT BAR -->
-<div class="contact-bar">
-  <span class="contact-bar-text" style="font-family:'Arial Black',Arial,sans-serif;font-size:1rem;-webkit-text-stroke:0.5px currentColor;">Order Now:</span>
-  <a href="https://wa.me/94741100921">074 110 0921</a>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">FFSLK STORE</div>
-  <p class="footer-copy">© 2026 FFSLK STORE — ALL RIGHTS RESERVED</p>
-</footer>
-
-
-
-<!-- MOBILE BOTTOM NAV -->
-<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-  <div class="mobile-nav-inner">
-    <button class="mob-nav-item active" data-target="home" onclick="mobileNavTo('home', this)">
-      <span class="mob-icon">🏠</span>
-      <span>Home</span>
-    </button>
-    <button class="mob-nav-item red-tab" data-target="guild" onclick="mobileNavTo('guild', this)">
-      <span class="mob-icon">⚡</span>
-      <span>Glory Bot</span>
-    </button>
-    <button class="mob-nav-item red-tab" data-target="likes" onclick="mobileNavTo('likes', this)">
-      <span class="mob-icon">❤️</span>
-      <span>Likes</span>
-    </button>
-    <button class="mob-nav-item" data-target="uid" onclick="mobileNavTo('uid', this)">
-      <span class="mob-icon">🎯</span>
-      <span>Rare UID</span>
-    </button>
-    <button class="mob-nav-item purple-tab" data-target="vipserver" onclick="mobileNavTo('vipserver', this)">
-      <span class="mob-icon">🔥</span>
-      <span>VIP Server</span>
-    </button>
-    <button class="mob-nav-item green-tab" data-target="vip" onclick="mobileNavTo('vip', this)">
-      <span class="mob-icon">⭐</span>
-      <span>FF Team</span>
-    </button>
-  </div>
-</nav>
-
-<!-- CART OVERLAY -->
-<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-
-<!-- CART SIDEBAR -->
-<div class="cart-sidebar" id="cartSidebar">
-  <div class="cart-header">
-    <div class="cart-title">🛒 YOUR CART</div>
-    <button class="cart-close" onclick="closeCart()">✕</button>
-  </div>
-  <div class="cart-items" id="cartItems">
-    <div class="cart-empty">
-      <div class="cart-empty-icon">🛒</div>
-      <div>No UIDs in cart yet.<br>Tap ADD on any UID to select it.</div>
-    </div>
-  </div>
-  <div class="cart-footer">
-    <div class="cart-summary" id="cartSummary"></div>
-    <a id="cartCheckout" class="cart-checkout" href="#" target="_blank">💬 ORDER VIA WHATSAPP</a>
-    <button class="cart-clear" onclick="clearCart()">🗑 CLEAR CART</button>
-  </div>
-</div>
-
-<!-- FLOATING CART BUTTON -->
-<button class="cart-float" id="cartFloat" onclick="openCart()">
-  🛒 CART <span class="cart-count" id="cartCountBadge">0</span>
-</button>
-
-<script>
-  const allPrices = {
-    LKR: { 's1':'500','s2':'1,000','s3':'1,500','s4':'2,000','s5':'2,500','s6':'2,750','s6old':'LKR 3,000','likes':'2,000','3d':'300','7d':'1,500','30d':'6,000' },
-    USD: { 's1':'1.99','s2':'3.99','s3':'5.99','s4':'7.99','s5':'9.99','s6':'11.00','s6old':'USD 12.00','likes':'19.99','3d':'1.00','7d':'5.00','30d':'20.00' }
-  };
-  let cart = [];
-
-  function getTier(uid) {
-    const t1 = ['15270','15269','15222','15149','14999','14770','14411','14377','15277','15200','15000'];
-    const t2 = ['14999999902','14699','14399','14377777999','15333','15288','14800','14599','14414','14369'];
-    if(t2.some(p => uid.startsWith(p) || uid === p)) return 'PREMIUM';
-    if(uid.startsWith('1555')) return 'VIP';
-    return 'BASIC';
-  }
-
-  function toggleCart(el) {
-    const uid = el.querySelector('span').textContent.trim();
-    if(el.classList.contains('in-cart')) {
-      cart = cart.filter(u => u !== uid);
-      el.classList.remove('in-cart');
-      el.querySelector('.uid-cart-btn').textContent = '🛒 ADD';
-    } else {
-      if(!cart.includes(uid)) cart.push(uid);
-      el.classList.add('in-cart');
-      el.querySelector('.uid-cart-btn').textContent = '✓ ADDED';
-    }
-    updateCartUI();
-  }
-
-  function updateCartUI() {
-    const float = document.getElementById('cartFloat');
-    const badge = document.getElementById('cartCountBadge');
-    const itemsEl = document.getElementById('cartItems');
-    const summary = document.getElementById('cartSummary');
-    const checkout = document.getElementById('cartCheckout');
-
-    badge.textContent = cart.length;
-    float.style.display = cart.length > 0 ? 'flex' : 'none';
-
-    if(cart.length === 0) {
-      itemsEl.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">🛒</div><div>No UIDs in cart yet.<br>Tap ADD on any UID to select it.</div></div>';
-      summary.textContent = '';
-    } else {
-      itemsEl.innerHTML = cart.map(uid => `
-        <div class="cart-item">
-          <div>
-            <div class="cart-item-tier">${getTier(uid)} TIER</div>
-            <div>${uid}</div>
-          </div>
-          <button class="cart-item-remove" onclick="removeFromCart('${uid}')">✕</button>
-        </div>
-      `).join('');
-      summary.textContent = `${cart.length} UID${cart.length > 1 ? 's' : ''} selected`;
-      const msg = encodeURIComponent('Hi! I wanna buy these Customized UIDs:\n\n' + cart.map((u,i) => `${i+1}. ${u} (${getTier(u)} Tier)`).join('\n') + '\n\nPlease send me the price and details! 🎯');
-      checkout.href = `https://wa.me/94741100921?text=${msg}`;
-    }
-  }
-
-  function removeFromCart(uid) {
-    cart = cart.filter(u => u !== uid);
-    document.querySelectorAll('.uid-example-item').forEach(el => {
-      if(el.querySelector('span') && el.querySelector('span').textContent.trim() === uid) {
-        el.classList.remove('in-cart');
-        el.querySelector('.uid-cart-btn').textContent = '🛒 ADD';
-      }
-    });
-    updateCartUI();
-  }
-
-  function clearCart() {
-    cart = [];
-    document.querySelectorAll('.uid-example-item.in-cart').forEach(el => {
-      el.classList.remove('in-cart');
-      el.querySelector('.uid-cart-btn').textContent = '🛒 ADD';
-    });
-    updateCartUI();
-  }
-
-  function openCart() {
-    document.getElementById('cartSidebar').classList.add('open');
-    document.getElementById('cartOverlay').classList.add('open');
-  }
-
-  function closeCart() {
-    document.getElementById('cartSidebar').classList.remove('open');
-    document.getElementById('cartOverlay').classList.remove('open');
-  }
-
-  // Attach click to all uid items
-  document.addEventListener('click', function(e) {
-    const item = e.target.closest('.uid-example-item');
-    if(item && !item.classList.contains('uid-sold') && (e.target.classList.contains('uid-cart-btn') || e.target === item)) {
-      toggleCart(item);
-    }
-  });
-
-  function showTier(num) {
-    document.querySelectorAll('.tier-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active-t1','active-t2','active-t3'));
-    document.getElementById('tier' + num).classList.add('active');
-    const btns = document.querySelectorAll('.tier-btn');
-    btns[num - 1].classList.add('active-t' + num);
-  }
-
-  function setGlobalCurrency(cur) {
-    const p = allPrices[cur];
-    ['s1','s2','s3','s4','s5','s6'].forEach(k => {
-      const el = document.getElementById('price-'+k);
-      const cel = document.getElementById('cur-'+k);
-      if(el) el.textContent = p[k];
-      if(cel) cel.textContent = cur;
-    });
-    const s6old = document.getElementById('price-s6-old');
-    if(s6old) s6old.textContent = p['s6old'];
-    const lp = document.getElementById('price-likes');
-    if(lp) lp.innerHTML = '<span id="cur-likes">'+cur+'</span> '+p['likes'];
-    ['3d','7d','30d'].forEach(k => {
-      const el = document.getElementById('price-'+k);
-      const cel = document.getElementById('cur-'+k);
-      if(el) el.textContent = p[k];
-      if(cel) cel.textContent = cur;
-    });
-    document.getElementById('gbtn-lkr').style.background = cur==='LKR'?'#3b82f6':'transparent';
-    document.getElementById('gbtn-lkr').style.color = cur==='LKR'?'#fff':'#888';
-    document.getElementById('gbtn-usd').style.background = cur==='USD'?'#3b82f6':'transparent';
-    document.getElementById('gbtn-usd').style.color = cur==='USD'?'#fff':'#888';
-  }
-
-  const VIP_CODES = [
-    'FFSLK-ADMIN-1515'
-  ];
-  function checkVIPCode() {
-    const input = document.getElementById('vip-code-input').value.trim().toUpperCase();
-    const err = document.getElementById('vip-code-error');
-    if(VIP_CODES.includes(input)) {
-      document.getElementById('vip-gate').style.display = 'none';
-      document.getElementById('vip-special').style.display = 'block';
-      err.style.display = 'none';
-    } else {
-      err.style.display = 'block';
-      document.getElementById('vip-code-input').style.borderColor = '#ef4444';
-      setTimeout(() => { document.getElementById('vip-code-input').style.borderColor = 'rgba(245,197,24,0.3)'; }, 1500);
-    }
-  }
-  function lockVIP() {
-    document.getElementById('vip-gate').style.display = 'block';
-    document.getElementById('vip-special').style.display = 'none';
-    document.getElementById('vip-code-input').value = '';
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    const inp = document.getElementById('vip-code-input');
-    if(inp) inp.addEventListener('keydown', function(e) { if(e.key==='Enter') checkVIPCode(); });
-  });
-</script>
-</body>
-</html>
-<script>
-  // ---- MOBILE BOTTOM NAV JS ----
-  function mobileNavTo(target, btn) {
-    document.querySelectorAll('.mob-nav-item').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    if (target === 'home') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
-    const el = document.getElementById(target);
-    if (!el) return;
-    const topNav = document.querySelector('nav:not(.mobile-nav)');
-    const navH = topNav ? topNav.offsetHeight : 60;
-    const elTop = el.getBoundingClientRect().top + window.scrollY - navH - 12;
-    window.scrollTo({ top: elTop, behavior: 'smooth' });
-  }
-
-  (function() {
-    const sections = ['guild','likes','uid','vipserver','vip'];
-    let ticking = false;
-    function updateActiveNav() {
-      const topNav = document.querySelector('nav:not(.mobile-nav)');
-      const navH = topNav ? topNav.offsetHeight + 20 : 80;
-      const scrollY = window.scrollY + navH + 80;
-      let current = 'home';
-      sections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top + window.scrollY <= scrollY) current = id;
-      });
-      document.querySelectorAll('.mob-nav-item').forEach(b => {
-        b.classList.toggle('active', b.dataset.target === current);
-      });
-    }
-    window.addEventListener('scroll', function() {
-      if (!ticking) { requestAnimationFrame(function() { updateActiveNav(); ticking = false; }); ticking = true; }
-    }, { passive: true });
-  })();
-</script>
+    <h2 class="section-title" style="font-family:'Arial Black',Arial,sans-serif;-webkit-
